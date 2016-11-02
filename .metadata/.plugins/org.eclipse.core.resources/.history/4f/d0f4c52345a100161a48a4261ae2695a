@@ -1,0 +1,55 @@
+package project.service.Implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import project.persistence.entities.Employee;
+import project.persistence.repositories.EmployeeRepository;
+import project.service.EmployeeService;
+
+@Service
+public class EmployeeServiceImplementation implements EmployeeService {
+
+	EmployeeRepository repository;
+	
+	@Autowired
+    public EmployeeServiceImplementation(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+	
+	@Override
+	Employee save(Employee employee){
+		
+	}
+	
+	@Override
+	void delete(Employee employee){
+		
+	}
+	
+	@Override
+	List<Employee> findAll(){
+		return new List<Employee> (new Employee());
+	}
+	
+	@Override
+	List<Employee> findByFullName(String fullname){
+		
+	}
+	
+	@Override
+	List<Employee> findByLoginName(String fullName){
+		
+	}
+	
+	@Override
+	Employee findOne(long id){
+		
+	}
+	
+	@Override
+	Employee verifyLogin(String user, String password){
+		
+	}
+}

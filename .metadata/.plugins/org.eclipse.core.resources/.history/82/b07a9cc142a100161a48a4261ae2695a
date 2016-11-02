@@ -1,0 +1,10 @@
+package project.service.Implementation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+project.persistence.entities.Employee
+
+@Service
+public class EmployeeServiceImplementation {
+
+}

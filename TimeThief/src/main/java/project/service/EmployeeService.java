@@ -1,6 +1,8 @@
 package project.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
+
+import project.persistence.entities.Employee;
 
 /**
  * Service class that has methods for String Manipulation
@@ -8,7 +10,20 @@ import org.springframework.stereotype.Service;
  * DISCLAIMER:  This class is just for demonstration purposes,
  *              something basic as this would be handled where it is needed
  */
-@Service
-public class EmployeeService {
+public interface EmployeeService {
+	
 
+	Employee save(Employee employee);
+	
+	void delete(Employee employee);
+	
+	List<Employee> findAll();
+	
+	List<Employee> findByFullName(String fullname);
+	
+	List<Employee> findByLoginName(String fullName);
+	
+	Employee findOne(Long id);
+	
+	Employee verifyLogin(String user, String password);
 }
