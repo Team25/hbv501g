@@ -1,0 +1,33 @@
+package project.persistence.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import project.persistence.entities.Employee;
+import project.persistence.entities.Entry;
+
+public interface EntryRepository  extends JpaRepository<Entry, Long>{
+	
+	@SuppressWarnings("unchecked")
+	Entry save(Entry entry);
+
+    void delete(Entry entry);
+    
+    Entry findOne(Long id);
+
+    List<Entry> findAll();
+    
+    List<Employee> findByFullName(String fullName);
+    
+    List<Employee> findByLoginName(String name);
+    
+	
+	+ save(entry: Entry): Entry
+	+ delete(entry: Entry): void
+	+ findOne(id: long): Entry
+	+ findByState(isVerified: boolean): List<Entry>
+	+ findByStateAndDepartment(isVerified: boolean, department: String): List<Entry>
+	+ findByExample(example, Example<Entry>): List<Entry>
+
+}

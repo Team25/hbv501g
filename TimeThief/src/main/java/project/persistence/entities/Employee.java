@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Employee {
 	private String fullName;
 	
-	//@Column(unique = true)
+	@Column(unique = true)
 	private String loginName;
 	private String loginPassword;
 	

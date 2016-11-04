@@ -1,0 +1,17 @@
+package project.persistence.entities;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Comment {
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private Entry entry;
+	private Long employeeId;
+	private String text;
+	
+
+}

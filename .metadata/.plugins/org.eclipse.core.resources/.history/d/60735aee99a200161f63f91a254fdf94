@@ -1,0 +1,14 @@
+package project.persistence.entities;
+
+public class Entry {
+	
+	private Long id;
+	private Long employeeId;
+	private list<Comment> comments;
+	private String department;
+	private Timestamp inTime;
+	private Timestamp outTime;
+	private boolean isVerified;
+	
+
+}

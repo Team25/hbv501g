@@ -166,3 +166,9 @@ Binding(ALT+SHIFT+X R,
 
 !ENTRY org.eclipse.jface.text 2 0 2016-11-03 10:43:05.705
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2016-11-04 14:15:37.108
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2016-11-04 14:15:37.108
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

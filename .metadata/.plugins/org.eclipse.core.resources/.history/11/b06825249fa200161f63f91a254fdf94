@@ -1,0 +1,6 @@
+package project.service;
+
+// TODO finish implementing this.
+public interface EntryService {
+	
+}
