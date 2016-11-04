@@ -1,0 +1,1 @@
+INSERT INTO employee(id, date_of_employment, default_department, full_name, home_address, hourly_rate, login_name, login_password, phone_number, social_security) VALUES(1, '2016-11-01 00:00:00', 'Overlord', 'Andri Valur Guðjohnsen', 'Meistaravellir 9', 500000, 'dingo', 'dingo', '661-5216', '300589-2270');
