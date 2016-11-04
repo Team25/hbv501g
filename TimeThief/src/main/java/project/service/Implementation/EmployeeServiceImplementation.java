@@ -51,7 +51,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	@Override
 	public Employee verifyLogin(String user, String password){
 		List<Employee> listWithEmployee = repository.findByLoginName(user);
-		Employee thisEmployee = listWithEmployee.get(0);
+		Employee thisEmployee = null;
+		
+		if(!listWithEmployee.isEmpty()){
+			thisEmployee = listWithEmployee.get(0);
+		}
 		
 		if(thisEmployee != null && password.equals(thisEmployee.getLoginPassword())){
 			return thisEmployee;

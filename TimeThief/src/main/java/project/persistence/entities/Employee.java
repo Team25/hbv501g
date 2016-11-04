@@ -7,6 +7,8 @@ import javax.persistence.*;
 @Table(name="employee")
 public class Employee {
 	private String fullName;
+	
+	//@Column(unique = true)
 	private String loginName;
 	private String loginPassword;
 	

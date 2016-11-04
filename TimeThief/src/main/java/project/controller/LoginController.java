@@ -26,29 +26,32 @@ public class LoginController {
 
     // Request mapping is the path that you want to map this method to
     // In this case, the mapping is the root "/", so when the project
-    // is running and you enter "localhost:8080" into a browser, this
+    // is running and you enter "localhost:8080/login" into a browser, this
     // method is called
-    @RequestMapping(value = "/Login", method = RequestMethod.GET)
-    public String loginPage(){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage(HttpSession session){
 
         // The string "Login" that is returned here is the name of the view
         // (the Login.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Login" to something else, be sure you have a .jsp
         // file that has the same name
-        return "Login";
+    	
+    	session.getAttribute("loggedInUser");
+    	
+        return "login";
     }
 
-    // To call this method, enter "localhost:8080/user" into a browser
-    @RequestMapping(value = "/Login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String userId, @RequestParam String password,
     		Model model, HttpSession session){
     	
     	Employee employee = employeeService.verifyLogin(userId, password);
     	if(employee == null){
     		model.addAttribute("loginError", "Username or Password is inccorect. Try again");
-    		return "Login";
+    		return "login";
     	}
     	session.setAttribute("loggedInUser", userId);
-    	return "redirect:/";
+    	model.addAttribute("loginError", "you have logged in");
+    	return "login";
     }
 }
