@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Service;
-// import org.springframework.data.domain.ExampleMatcher;
-// https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/domain/ExampleMatcher.java
-// skoða link fyrir ofan... finn ekki example matcher til að importa.
 
 import project.persistence.entities.Entry;
 import project.persistence.repositories.EmployeeRepository;
@@ -32,10 +29,7 @@ public class EntryServiceImplementation implements EntryService {
 	
 	public List<Entry> findByExample(Entry entry){
 
-		ExampleMatcher matcher = ExampleMatcher.matching()
-				  .withMatcher("firstname", endsWith())
-				  .withMatcher("lastname", startsWith().ignoreCase());
-		entryRepository.findByExample(Example.of(entry, matcher));
+		entryRepository.findByExample(Example.of(entry));
 	}
 	
 	public Entry findOne(Long id){

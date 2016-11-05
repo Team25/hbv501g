@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Service;
-// import org.springframework.data.domain.ExampleMatcher;
-// https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/domain/ExampleMatcher.java
-// skoða link fyrir ofan... finn ekki example matcher til að importa.
+import org.springframework.data.domain.ExampleMatcher
 
 import project.persistence.entities.Entry;
 import project.persistence.repositories.EmployeeRepository;
