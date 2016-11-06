@@ -1,19 +1,21 @@
 package project.persistence.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Entry_Comment")
+@Table(name = "comment")
 public class Comment {
 
 	@Id
-	@Column(name = "CommentId")
+	@Column(name = "commentId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	/*
+	@ManyToOne
+	@JoinColumn(name = "entryId")
 	private Entry entry;
+	*/
 	private Long employeeId;
 	private String text;
 	
@@ -23,15 +25,15 @@ public class Comment {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@ManyToOne(fetch = FetchType.EAGER,
-			optional = false)
-	@JoinColumn(name = "EntryId")
+	/*
 	public Entry getEntry() {
 		return entry;
 	}
+	
 	public void setEntry(Entry entry) {
 		this.entry = entry;
 	}
+	*/
 	public Long getEmployeeId() {
 		return employeeId;
 	}

@@ -6,15 +6,17 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name="entry")
+@Table(name = "entry")
 public class Entry {
 	
 	@Id
-	@Column(name = "EntryId")
+	@Column(name = "entryId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long employeeId;
-	private List<Comment> comments;
+	
+	//@OneToMany(mappedBy = "entry")
+	//private List<Comment> comments;
 	private String department;
 	private Timestamp inTime;
 	private Timestamp outTime;
@@ -32,17 +34,15 @@ public class Entry {
 	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
-	
-	@OneToMany(mappedBy ="entry",
-			fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			orphanRemoval = true)
+
+	/*
 	public List<Comment> getComments() {
 		return comments;
 	}
+	
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
-	}
+	}*/
 	public String getDepartment() {
 		return department;
 	}

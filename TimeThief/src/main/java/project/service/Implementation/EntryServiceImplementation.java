@@ -2,9 +2,9 @@ package project.service.Implementation;
 
 import java.util.List;
 
-import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Service;
-// import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 // https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/domain/ExampleMatcher.java
 // skoða link fyrir ofan... finn ekki example matcher til að importa.
 
@@ -32,39 +32,43 @@ public class EntryServiceImplementation implements EntryService {
 	
 	public List<Entry> findByExample(Entry entry){
 
-		ExampleMatcher matcher = ExampleMatcher.matching()
-				  .withMatcher("firstname", endsWith())
-				  .withMatcher("lastname", startsWith().ignoreCase());
-		entryRepository.findByExample(Example.of(entry, matcher));
+		ExampleMatcher matcher = ExampleMatcher.matching();
+		
+		return entryRepository.findByExample(Example.of(entry, matcher));
 	}
 	
 	public Entry findOne(Long id){
-		
+		return entryRepository.findOne(id);
 	}
 	
 	public List<Entry> findByEmployeeId(Long employeeId){
-		
+		return entryRepository.findById(new Long(1));
 	}
 	
+	// TODO laga
 	public List<Entry> findByState(boolean isVerified){
-		
+		return entryRepository.findById(new Long(1));
 	}
 	
+	// TODO laga
 	public List<Entry> findByStateAndDepartment(boolean isVerified, String department){
-		
+		return entryRepository.findById(new Long(1));
 	}
 	
+	// TODO laga
 	public Entry clock(Long employeeId){
-		
+		return entryRepository.findOne(employeeId);
 	}
 	
 	// cannot make private
+	// TODO laga
 	public Entry clockIn(Long employeeId){
-		
+		return entryRepository.findOne(employeeId);
 	}
 	
 	// cannot make private
+	// TODO laga
 	public Entry clockOut(Long employeeId){
-		
+		return entryRepository.findOne(employeeId);
 	}
 }

@@ -2,7 +2,7 @@ package project.persistence.repositories;
 
 import java.util.List;
 
-import org.hibernate.criterion.Example;
+import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import project.persistence.entities.Employee;
@@ -22,7 +22,9 @@ public interface EntryRepository  extends JpaRepository<Entry, Long>{
     
     List<Entry> findByStateAndDepartment(boolean isVerified, String department);
     
-    List<Entry> findByExample(Example example);
+    List<Entry> findByExample(Example<Entry> example);
+    
+    List<Entry> findById(Long id);
     
 
 }
