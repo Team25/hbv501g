@@ -36,9 +36,11 @@ public class LoginController {
         // If you change "Login" to something else, be sure you have a .jsp
         // file that has the same name
     	
-    	session.getAttribute("loggedInUser");
-    	
-        return "login";
+    	Long user = (Long)session.getAttribute("loggedInUser");
+    	if(user == null){
+    		return "login";
+    	}
+    	return "redirect:/clock";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -50,8 +52,9 @@ public class LoginController {
     		model.addAttribute("loginError", "Username or Password is inccorect. Try again");
     		return "login";
     	}
-    	session.setAttribute("loggedInUser", userId);
-    	model.addAttribute("loginError", "you have logged in");
-    	return "login";
+    	
+    	session.setAttribute("loggedInUser", employeeService.findByLoginName(userId).get(0).getId());
+    	//model.addAttribute("loginError", "you have logged in");
+    	return "redirect:/clock";
     }
 }

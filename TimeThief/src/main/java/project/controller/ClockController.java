@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Employee;
+import project.persistence.entities.Entry;
 import project.service.EmployeeService;
 import project.service.EntryService;
 
@@ -33,6 +34,17 @@ public class ClockController {
     // method is called
     @RequestMapping(value = "/clock", method = RequestMethod.GET)
     public String loginPage(HttpSession session){
+    	
+    	// Check if user is signed in:
+    	String user = (String)session.getAttribute("loggedInUser");
+    	if(user==null)
+    		return "redirect:/login";
+    	
+    	// see if user is clocked in
+    	Entry entryExample = new Entry();
+    	entryExample.setEmployeeId(employeeService.findByLoginName(user).get(0).getId());
+    	
+    	
     	
     	
         return "clock";
