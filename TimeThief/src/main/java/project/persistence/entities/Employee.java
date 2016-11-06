@@ -115,7 +115,7 @@ public class Employee {
 	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	public boolean getIsAdmin(boolean isAdmin) {
+	public boolean getIsAdmin() {
 		return isAdmin;
 	}
 }
