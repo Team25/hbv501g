@@ -36,13 +36,14 @@ public class ClockController {
     public String loginPage(HttpSession session){
     	
     	// Check if user is signed in:
-    	String user = (String)session.getAttribute("loggedInUser");
+    	Long user = (Long)session.getAttribute("loggedInUser");
     	if(user==null)
     		return "redirect:/login";
     	
     	// see if user is clocked in
     	Entry entryExample = new Entry();
-    	entryExample.setEmployeeId(employeeService.findByLoginName(user).get(0).getId());
+    	entryExample.setEmployeeId(user);
+    	
     	
     	
     	
