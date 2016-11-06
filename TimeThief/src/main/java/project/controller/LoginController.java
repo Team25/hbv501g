@@ -54,7 +54,6 @@ public class LoginController {
     	}
     	
     	session.setAttribute("loggedInUser", employee.getId());
-    	//model.addAttribute("loginError", "you have logged in");
     	return "redirect:/clock";
     }
 }
