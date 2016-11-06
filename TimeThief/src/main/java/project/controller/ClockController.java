@@ -33,20 +33,22 @@ public class ClockController {
     // is running and you enter "localhost:8080/login" into a browser, this
     // method is called
     @RequestMapping(value = "/clock", method = RequestMethod.GET)
-    public String loginPage(HttpSession session){
+    public String loginPage(HttpSession session, Model model){
     	
     	// Check if user is signed in:
     	Long user = (Long)session.getAttribute("loggedInUser");
     	if(user==null)
     		return "redirect:/login";
-    	
+    	model.addAttribute("clockInInfo", "Welcome");
+    	model.addAttribute("user", user.toString());
     	// see if user is clocked in
-    	Entry entryExample = new Entry();
-    	entryExample.setEmployeeId(user);
-    	
-    	
-    	
-    	
+    	Entry entry = entryService.isEmployeeLoggedIn(user);
+    	if(entry == null){
+    		model.addAttribute("clockStatus", "Clock In!");
+    	} else{
+    		model.addAttribute("clockStatus", "Clock Out!");
+    	}
+
     	
         return "clock";
     }

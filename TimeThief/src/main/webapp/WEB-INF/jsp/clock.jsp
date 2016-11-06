@@ -13,7 +13,7 @@ ${clockInInfo}
 <div class="form-group form">
 	<h1>Welcome ${user}</h1>
 	<sf:form action='clock' method="POST">
-		<button id="clockButton" class="form-control">Clock</button>
+		<button id="clockButton" class="form-control">${clockStatus }</button>
 	</sf:form>
 </div>
 </div>
