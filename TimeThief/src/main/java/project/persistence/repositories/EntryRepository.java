@@ -2,10 +2,8 @@ package project.persistence.repositories;
 
 import java.util.List;
 
-import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import project.persistence.entities.Employee;
 import project.persistence.entities.Entry;
 
 public interface EntryRepository  extends JpaRepository<Entry, Long>{
@@ -21,9 +19,7 @@ public interface EntryRepository  extends JpaRepository<Entry, Long>{
     List<Entry> findByState(boolean isVerified);
     
     List<Entry> findByStateAndDepartment(boolean isVerified, String department);
-    
-    List<Entry> findByExample(Example<Entry> example);
-    
+        
     List<Entry> findById(Long id);
     
 

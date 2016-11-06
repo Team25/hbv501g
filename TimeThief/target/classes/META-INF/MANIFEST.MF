@@ -4,6 +4,8 @@ Implementation-Version: 0.1
 Built-By: dingo
 Implementation-Vendor-Id: HBV501G
 Build-Jdk: 1.8.0_111
+Implementation-URL: http://projects.spring.io/spring-boot/Spring_Web_M
+ VC/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 

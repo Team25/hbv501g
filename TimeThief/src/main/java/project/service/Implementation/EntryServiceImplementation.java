@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
+// import org.springframework.data.domain.ExampleMatcher;
 // https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/domain/ExampleMatcher.java
 // skoða link fyrir ofan... finn ekki example matcher til að importa.
 
@@ -31,10 +31,10 @@ public class EntryServiceImplementation implements EntryService {
 	}
 	
 	public List<Entry> findByExample(Entry entry){
-
-		ExampleMatcher matcher = ExampleMatcher.matching();
 		
-		return entryRepository.findByExample(Example.of(entry, matcher));
+		Example<Entry> entryExample = Example.of(entry);
+		
+		return entryRepository.findAll(entryExample);
 	}
 	
 	public Entry findOne(Long id){

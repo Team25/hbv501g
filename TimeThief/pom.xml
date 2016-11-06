@@ -11,8 +11,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.2.5.RELEASE</version>
-    </parent>
+        <version>1.4.0.RELEASE</version>
+    </parent> 
 
     <dependencies>
 
@@ -52,12 +52,6 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
-		<dependency>
-	    	<groupId>org.springframework.data</groupId>
-	    	<artifactId>spring-data-commons</artifactId>
-	    	<version>1.12.5.RELEASE</version>
-		</dependency>
 
     </dependencies>
 
