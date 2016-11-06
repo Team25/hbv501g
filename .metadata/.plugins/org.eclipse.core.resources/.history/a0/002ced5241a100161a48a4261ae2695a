@@ -1,8 +1,0 @@
-package project.persistence.entities;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class Employee {
-	
-}

@@ -1,5 +1,0 @@
-package project.persistence.repositories;
-
-public class EmployeeRepository {
-
-}
