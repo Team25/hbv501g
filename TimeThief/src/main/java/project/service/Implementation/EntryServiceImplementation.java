@@ -30,6 +30,14 @@ public class EntryServiceImplementation implements EntryService {
 		entryRepository.delete(entry);
 	}
 	
+	public Entry isEmployeeLoggedIn(Long employeeId){
+		List<Entry> entryList = entryRepository.findByOutTimeIsNullAndEmployeeId(employeeId);
+		if(entryList.isEmpty()){
+			return null;
+		}
+		return entryList.get(0);
+	}
+	
 	public List<Entry> findByExample(Entry entry){
 		
 		Example<Entry> entryExample = Example.of(entry);
