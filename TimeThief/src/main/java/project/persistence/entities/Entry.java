@@ -13,7 +13,7 @@ public class Entry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long employeeId;
-	private List<Comment> comments;
+//	private List<Comment> comments;
 	private String department;
 	private Timestamp inTime;
 	private Timestamp outTime;
@@ -31,17 +31,12 @@ public class Entry {
 	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
-	
-	@OneToMany(mappedBy ="entry",
-			fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			orphanRemoval = true)
-	public List<Comment> getComments() {
-		return comments;
-	}
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+//	public List<Comment> getComments() {
+//		return comments;
+//	}
+//	public void setComments(List<Comment> comments) {
+//		this.comments = comments;
+//	}
 	public String getDepartment() {
 		return department;
 	}
@@ -63,8 +58,8 @@ public class Entry {
 	public boolean isVerified() {
 		return state;
 	}
-	public void setVerified(boolean state) {
-		this.state = state;
+	public void setVerified(boolean isVerified) {
+		this.state = isVerified;
 	}
 	
 
