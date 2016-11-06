@@ -61,10 +61,10 @@ public class Entry {
 		this.outTime = outTime;
 	}
 	public boolean isVerified() {
-		return state;
+		return isVerified;
 	}
-	public void setVerified(boolean state) {
-		this.state = state;
+	public void setVerified(boolean isVerified) {
+		this.isVerified = isVerified;
 	}
 	
 

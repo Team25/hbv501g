@@ -17,7 +17,7 @@ public class Entry {
 	private String department;
 	private Timestamp inTime;
 	private Timestamp outTime;
-	private boolean state;
+	private boolean isVerified;
 	
 	public Long getId() {
 		return id;
@@ -31,11 +31,6 @@ public class Entry {
 	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
-	
-	@OneToMany(mappedBy ="entry",
-			fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			orphanRemoval = true)
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -61,10 +56,10 @@ public class Entry {
 		this.outTime = outTime;
 	}
 	public boolean isVerified() {
-		return state;
+		return isVerified;
 	}
-	public void setVerified(boolean state) {
-		this.state = state;
+	public void setVerified(boolean isVerified) {
+		this.isVerified = isVerified;
 	}
 	
 
