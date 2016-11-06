@@ -17,6 +17,8 @@ public interface EntryService {
 	
 	List<Entry> findByEmployeeId(Long employeeId);
 	
+	Entry isEmployeeLoggedIn(Long employeeId);
+	
 	List<Entry> findByState(boolean isVerified);
 	
 	List<Entry> findByStateAndDepartment(boolean isVerified, String department);
