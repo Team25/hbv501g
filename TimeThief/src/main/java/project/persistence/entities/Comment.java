@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Comment {
 
 	@Id
-	//@ColumnName(name = "CommentId")
+	@Column(name = "CommentId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Entry entry;
@@ -25,7 +25,7 @@ public class Comment {
 	}
 	@ManyToOne(fetch = FetchType.EAGER,
 			optional = false)
-	@JoinColumn(name = "entry.id")
+	@JoinColumn(name = "EntryId")
 	public Entry getEntry() {
 		return entry;
 	}
