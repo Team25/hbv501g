@@ -36,13 +36,14 @@ public class ClockController {
     public String loginPage(HttpSession session, Model model){
     	
     	// Check if user is signed in:
-    	Long user = (Long)session.getAttribute("loggedInUser");
-    	if(user==null)
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
     		return "redirect:/login";
+    	
     	model.addAttribute("clockInInfo", "Welcome");
-    	model.addAttribute("user", user.toString());
+    	model.addAttribute("user", userId.toString());
     	// see if user is clocked in
-    	Entry entry = entryService.isEmployeeLoggedIn(user);
+    	Entry entry = entryService.isEmployeeLoggedIn(userId);
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
     	} else{

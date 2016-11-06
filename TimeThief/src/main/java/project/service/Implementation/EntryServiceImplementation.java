@@ -31,8 +31,8 @@ public class EntryServiceImplementation implements EntryService {
 	}
 	
 	public Entry isEmployeeLoggedIn(Long employeeId){
-		List<Entry> entryList = entryRepository.findByOutTimeIsNullAndEmployeeId(employeeId);
-		if(entryList.isEmpty()){
+		List<Entry> entryList = entryRepository.findByEmployeeIdAndOutTimeIsNull(employeeId);
+		if(entryList == null || entryList.isEmpty()){
 			return null;
 		}
 		return entryList.get(0);

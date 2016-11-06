@@ -53,7 +53,7 @@ public class LoginController {
     		return "login";
     	}
     	
-    	session.setAttribute("loggedInUser", employeeService.findByLoginName(userId).get(0).getId());
+    	session.setAttribute("loggedInUser", employee.getId());
     	//model.addAttribute("loginError", "you have logged in");
     	return "redirect:/clock";
     }

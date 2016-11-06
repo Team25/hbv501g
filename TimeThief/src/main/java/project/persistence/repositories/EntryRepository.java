@@ -15,7 +15,7 @@ public interface EntryRepository  extends JpaRepository<Entry, Long>{
     
     Entry findOne(Long id);
 
-    List<Entry> findByOutTimeIsNullAndEmployeeId(Long employeeId);
+    List<Entry> findByEmployeeIdAndOutTimeIsNull(Long employeeId);
     
     List<Entry> findByState(boolean isVerified);
     
