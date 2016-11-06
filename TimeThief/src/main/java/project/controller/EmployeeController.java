@@ -25,22 +25,24 @@ public class EmployeeController {
     }
     
     @RequestMapping(value = "/employee/view/all", method = RequestMethod.GET)
-    public String loginPage(HttpSession session){
+    public String viewAllEmployees(HttpSession session, Model model){
 
         // The string "Login" that is returned here is the name of the view
         // (the Login.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Login" to something else, be sure you have a .jsp
         // file that has the same name
     	
-    	Long userId = (Long)session.getAttribute("loggedInUser");
-    	Employee currentEmployee = employeeService.findOne(userId);
+    	Long empId = (Long)session.getAttribute("loggedInUser");
+    	Employee currentEmployee = employeeService.findOne(empId);
+    	String fullName = currentEmployee.getFullName();
     	if (currentEmployee.getIsAdmin()) {
     		// placeholder return -- TODO decide what to do
-    		return "employeelist";
+        	model.addAttribute("loginError", fullName + " is an admin");
     	}
     	else {
     		// placeholder return -- TODO decide what to do
-    		return "unauthorized";
-    	}	
+    		model.addAttribute("loginError", fullName + " is not an admin");
+    	}
+    	return "login";
     }
 }
