@@ -22,6 +22,7 @@ public class Employee {
 	private Date dateOfEmployment;
 	private float hourlyRate;
 	private String defaultDepartment;
+	private boolean isAdmin;
 	
 	public Employee(){
 		
@@ -36,7 +37,8 @@ public class Employee {
 					String homeAddress,
 					Date dateOfEmployment,
 					float hourlyRate,
-					String defaultDepartment){
+					String defaultDepartment,
+					boolean isAdmin){
 		this.fullName = fullName;
 		this.loginName = loginName;
 		this.loginPassword = loginPassword;
@@ -47,13 +49,14 @@ public class Employee {
 		this.dateOfEmployment = dateOfEmployment;
 		this.hourlyRate = hourlyRate;
 		this.defaultDepartment = defaultDepartment;
+		this.isAdmin = isAdmin;
 	}
 	
-	public String getFullname() {
+	public String getFullName() {
 		return fullName;
 	}
-	public void setFullname(String fullname) {
-		this.fullName = fullname;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	public String getLoginName() {
 		return loginName;
@@ -109,7 +112,10 @@ public class Employee {
 	public void setDefaultDepartment(String defaultDepartment) {
 		this.defaultDepartment = defaultDepartment;
 	}
-	
-	
-
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	public boolean getIsAdmin(boolean isAdmin) {
+		return isAdmin;
+	}
 }
