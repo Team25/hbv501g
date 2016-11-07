@@ -30,7 +30,9 @@
 			<button id="clockButton" class="form-control">${clockStatus }</button>
 		</sf:form>
 		<p>${loginFeedback}</p>
+	</div>	
+	<div class="user-toolbar">
+		<a href="/logout">Logout</a>
 	</div>
-	
 </body>
 </html>
