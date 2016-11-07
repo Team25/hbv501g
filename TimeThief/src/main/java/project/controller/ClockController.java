@@ -52,6 +52,16 @@ public class ClockController {
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
     		model.addAttribute("clockInInfo", "<div style='background-color:yellow'><p>You are currently not clocked in</p></div>");
+    		
+    		String select = "<label for='department'>Department:</label>"
+    				+ "<select form='clock-form' name='department' id='department'>"
+    				+ "<option value='Overlord'>Overlord</option>"
+    				+ "<option value='BigBossDepartment'>BigBossDepartment</option>"
+    				+ "<option value='JokerDepartment'>JokerDepartment</option>"
+    				+ "<option value='BatmanDepartment'>BatmanDepartment</option>"
+    				+ "</select>";
+    		
+    		model.addAttribute("departmentChooser", select);
     	} else{
     		model.addAttribute("clockStatus", "Clock Out!");
     		model.addAttribute("clockInInfo", "<div style='background-color:#58D68D'><p>You are currently clocked in to " + entry.getDepartment() + "</p></div>");
@@ -64,7 +74,7 @@ public class ClockController {
     }
 
     @RequestMapping(value = "/clock", method = RequestMethod.POST)
-    public String login(@RequestParam String department, Model model, HttpSession session){
+    public String login(@RequestParam(required = false) String department, Model model, HttpSession session){
     	
     	// Check if user is signed in:
     	Long userId = (Long)session.getAttribute("loggedInUser");
@@ -76,6 +86,12 @@ public class ClockController {
     	String userName = employeeService.findOne(userId).getFullName();
     	model.addAttribute("user", "Welcome "+userName);
     	
+    	// TODO laga
+    	if(department == null){
+    		Entry currentEntry = entryService.isEmployeeClockedIn(userId);
+    		department = currentEntry.getDepartment();
+    	}
+    	
     	Entry entry = entryService.clock(userId, department);
     	
     	if(entry.getOutTime() == null){
@@ -86,6 +102,16 @@ public class ClockController {
     		model.addAttribute("loginFeedback", "clock out successful");
     		model.addAttribute("clockStatus", "Clock In!");
     		model.addAttribute("clockInInfo", "<div style='background-color:yellow'><p>You are currently not clocked in</p></div>");
+    		
+    		String select = "<label for='department'>Department:</label>"
+    				+ "<select form='clock-form' name='department' id='department'>"
+    				+ "<option value='Overlord' selected>Overlord</option>"
+    				+ "<option value='BigBossDepartment'>BigBossDepartment</option>"
+    				+ "<option value='JokerDepartment'>JokerDepartment</option>"
+    				+ "<option value='BatmanDepartment'>BatmanDepartment</option>"
+    				+ "</select>";
+    		
+    		model.addAttribute("departmentChooser", select);
     	}
 
     	if (currentEmployee.isAdmin()) 
