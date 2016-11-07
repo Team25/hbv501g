@@ -20,7 +20,7 @@ public class Entry {
 	private String department;
 	private Timestamp inTime;
 	private Timestamp outTime;
-	private boolean state;
+	private boolean isVerified;
 	
 	public Long getId() {
 		return id;
@@ -61,11 +61,11 @@ public class Entry {
 	public void setOutTime(Timestamp outTime) {
 		this.outTime = outTime;
 	}
-	public boolean getState() {
-		return state;
+	public boolean getIsVerified() {
+		return isVerified;
 	}
-	public void setState(boolean state) {
-		this.state = state;
+	public void setIsVerified(boolean state) {
+		this.isVerified = state;
 	}
 	
 

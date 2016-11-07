@@ -94,7 +94,7 @@ public class EntryServiceImplementation implements EntryService {
 		entry.setDepartment(department);
 		entry.setEmployeeId(employeeId);
 		entry.setInTime(new Timestamp(System.currentTimeMillis()));
-		entry.setState(false);
+		entry.setIsVerified(false);
 		return entryRepository.save(entry);		
 	}
 	
