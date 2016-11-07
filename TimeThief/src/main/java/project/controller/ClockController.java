@@ -51,14 +51,14 @@ public class ClockController {
     	Entry entry = entryService.isEmployeeClockedIn(userId);
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
-    		model.addAttribute("clockInInfo", "You are currently not clocked in");
+    		model.addAttribute("clockInInfo", "<div style='background-color:yellow'><p>You are currently not clocked in</p></div>");
     	} else{
     		model.addAttribute("clockStatus", "Clock Out!");
-    		model.addAttribute("clockInInfo", "You are currently clocked in to " + entry.getDepartment());
+    		model.addAttribute("clockInInfo", "<div style='background-color:#58D68D'><p>You are currently clocked in to " + entry.getDepartment() + "</p></div>");
     	}
 
     	if (currentEmployee.isAdmin()) 
-    		model.addAttribute("adminToolbar", "<a href='employee/view/all'>Employee list</a>");
+    		model.addAttribute("adminToolbar", "<a href='employee/view/all'><div>Employee list</div></a>");
     	
         return "clock";
     }
@@ -81,11 +81,11 @@ public class ClockController {
     	if(entry.getOutTime() == null){
     	 	model.addAttribute("loginFeedback", "clock in successful");
     	 	model.addAttribute("clockStatus", "Clock Out!");
-    		model.addAttribute("clockInInfo", "You are currently clocked in to " + entry.getDepartment());
+    		model.addAttribute("clockInInfo", "<div style='background-color:#58D68D'><p>You are currently clocked in to " + entry.getDepartment() + "</p></div>");
     	} else{
     		model.addAttribute("loginFeedback", "clock out successful");
     		model.addAttribute("clockStatus", "Clock In!");
-    		model.addAttribute("clockInInfo", "You are currently not clocked in");
+    		model.addAttribute("clockInInfo", "<div style='background-color:yellow'><p>You are currently not clocked in</p></div>");
     	}
 
     	if (currentEmployee.isAdmin()) 

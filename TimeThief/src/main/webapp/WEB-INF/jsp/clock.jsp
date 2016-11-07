@@ -5,28 +5,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/clock.css"/>"/>
 <title>Clock in/out</title>
 </head>
 <body>
-<div class="container">
-${clockInInfo}
-<div class="form-group form">
-	<h1>${user}</h1>
+	<div class="admin-toolbar">
+		${adminToolbar}
+	</div>
+	<div class="container">
+		<h1>${user}</h1>
+		<div class="status-box">
+			${clockInInfo}
+		</div>
+		<sf:form action='clock' id='clock-form' method="POST">
+			<div class="form-group">
+				<label for="department">Department:</label>
+				<select form='clock-form' name='department' id='department'>
+					<option value="Overlord">Overlord</option>
+					<option value="BigBossDepartment">BigBossDepartment</option>
+					<option value="JokerDepartment">JokerDepartment</option>
+					<option value="BatmanDepartment">BatmanDepartment</option>
+				</select>
+			</div>
+			<button id="clockButton" class="form-control">${clockStatus }</button>
+		</sf:form>
+		<p>${loginFeedback}</p>
+	</div>
 	
-	<sf:form action='clock' id='clock-form' method="POST">
-		<select form='clock-form' name='department' id='department'>
-  			<option value="Overlord">Overlord</option>
-  			<option value="BigBossDepartment">BigBossDepartment</option>
-  			<option value="JokerDepartment">JokerDepartment</option>
-  			<option value="BatmanDepartment">BatmanDepartment</option>
-		</select>
-		<button id="clockButton" class="form-control">${clockStatus }</button>
-	</sf:form>
-	${loginFeedback }
-</div>
-<div class="admin-toolbar">
-${adminToolbar}
-</div>
-</div>
 </body>
 </html>
