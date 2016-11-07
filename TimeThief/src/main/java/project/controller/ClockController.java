@@ -40,10 +40,14 @@ public class ClockController {
     	Long userId = (Long)session.getAttribute("loggedInUser");
     	if(userId==null)
     		return "redirect:/login";
+
+    	Employee currentEmployee = employeeService.findOne(userId);
+
     	
     	
-    	model.addAttribute("user", "Welcom"+userId.toString());
+    	model.addAttribute("user", "Welcome "+userId.toString());
     	// see if user is clocked in
+    	
     	Entry entry = entryService.isEmployeeClockedIn(userId);
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
@@ -53,6 +57,8 @@ public class ClockController {
     		model.addAttribute("clockInInfo", "You are logged in");
     	}
 
+    	if (currentEmployee.isAdmin()) 
+    		model.addAttribute("adminToolbar", "<a href='employee/view/all'>Employee list</a>");
     	
         return "clock";
     }
@@ -64,6 +70,9 @@ public class ClockController {
     	Long userId = (Long)session.getAttribute("loggedInUser");
     	if(userId==null)
     		return "redirect:/login";
+
+    	Employee currentEmployee = employeeService.findOne(userId);
+
     	
     	model.addAttribute("user", "Welcome "+userId.toString());
     	
@@ -78,7 +87,10 @@ public class ClockController {
     		model.addAttribute("clockStatus", "Clock In!");
     		model.addAttribute("clockInInfo", "You are not logged in");
     	}
-    	
+
+    	if (currentEmployee.isAdmin()) 
+    		model.addAttribute("adminToolbar", "<a href='employee/view/all'>Employee list</a>");
+
     	return "clock";
     }
 }

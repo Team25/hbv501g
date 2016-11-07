@@ -24,6 +24,9 @@ ${clockInInfo}
 	</sf:form>
 	${loginFeedback }
 </div>
+<div class="admin-toolbar">
+${adminToolbar}
+</div>
 </div>
 </body>
 </html>
