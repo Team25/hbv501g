@@ -88,10 +88,10 @@ public class Employee {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getHomeAddrass() {
+	public String getHomeAddress() {
 		return homeAddress;
 	}
-	public void setHomeAddrass(String homeAddrass) {
+	public void setHomeAddress(String homeAddrass) {
 		this.homeAddress = homeAddrass;
 	}
 	public Date getDateOfEmployement() {

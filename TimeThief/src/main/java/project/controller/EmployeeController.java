@@ -45,7 +45,11 @@ public class EmployeeController {
     		ArrayList<String> employeeNames = new ArrayList<String>();
     		for (ListIterator<Employee> iter = employeeList.listIterator(); iter.hasNext(); ) {
     		    Employee e = iter.next();
-    		    employeeNames.add(e.getFullName());
+    		    String empString = e.getFullName();
+    		    empString += " - " + e.getHomeAddress();
+    		    empString += " - " + e.getPhoneNumber();
+    		    empString += " - Admin:" + e.isAdmin();
+    		    employeeNames.add(empString);
     		}
         	model.addAttribute("employeeList", employeeNames);
     	}
