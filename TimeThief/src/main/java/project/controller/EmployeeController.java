@@ -46,6 +46,7 @@ public class EmployeeController {
     		for (ListIterator<Employee> iter = employeeList.listIterator(); iter.hasNext(); ) {
     		    Employee e = iter.next();
     		    String empString = e.getFullName();
+    		    empString += " - " + e.getSocialSecurity();
     		    empString += " - " + e.getHomeAddress();
     		    empString += " - " + e.getPhoneNumber();
     		    empString += " - Admin:" + e.isAdmin();
