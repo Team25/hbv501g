@@ -27,6 +27,9 @@ ${clockInInfo}
 <div class="admin-toolbar">
 ${adminToolbar}
 </div>
+<div class="user-toolbar">
+<a href="/logout">Logout</a>
+</div>
 </div>
 </body>
 </html>

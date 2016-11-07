@@ -56,4 +56,14 @@ public class LoginController {
     	session.setAttribute("loggedInUser", employee.getId());
     	return "redirect:/clock";
     }
+    
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session){
+    	
+    	session.removeAttribute("loggedInUser");
+    	
+    	return "redirect:/login";
+    }
 }
+
+
