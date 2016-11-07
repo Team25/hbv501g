@@ -44,17 +44,17 @@ public class ClockController {
     	Employee currentEmployee = employeeService.findOne(userId);
 
     	
-    	
-    	model.addAttribute("user", "Welcome "+userId.toString());
+    	String userName = employeeService.findOne(userId).getFullName();
+    	model.addAttribute("user", "Welcome "+userName);
     	// see if user is clocked in
     	
     	Entry entry = entryService.isEmployeeClockedIn(userId);
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
-    		model.addAttribute("clockInInfo", "You are not logged in");
+    		model.addAttribute("clockInInfo", "You are currently not clocked in");
     	} else{
     		model.addAttribute("clockStatus", "Clock Out!");
-    		model.addAttribute("clockInInfo", "You are logged in");
+    		model.addAttribute("clockInInfo", "You are currently clocked in");
     	}
 
     	if (currentEmployee.isAdmin()) 
@@ -73,19 +73,19 @@ public class ClockController {
 
     	Employee currentEmployee = employeeService.findOne(userId);
 
-    	
-    	model.addAttribute("user", "Welcome "+userId.toString());
+    	String userName = employeeService.findOne(userId).getFullName();
+    	model.addAttribute("user", "Welcome "+userName);
     	
     	Entry entry = entryService.clock(userId, department);
     	
     	if(entry.getOutTime() == null){
     	 	model.addAttribute("loginFeedback", "clock in successful");
     	 	model.addAttribute("clockStatus", "Clock Out!");
-    		model.addAttribute("clockInInfo", "You are logged in");
+    		model.addAttribute("clockInInfo", "You are currently clocked in");
     	} else{
     		model.addAttribute("loginFeedback", "clock out successful");
     		model.addAttribute("clockStatus", "Clock In!");
-    		model.addAttribute("clockInInfo", "You are not logged in");
+    		model.addAttribute("clockInInfo", "You are currently not clocked in");
     	}
 
     	if (currentEmployee.isAdmin()) 
