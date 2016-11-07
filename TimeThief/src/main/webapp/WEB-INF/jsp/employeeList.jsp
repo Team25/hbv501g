@@ -9,7 +9,9 @@
 </head>
 <body>
 <div class="container">
-${employeeList}
+<c:forEach var="listValue" items="${employeeList}">
+	<li>${listValue}</li>
+</c:forEach>
 </div>
 </body>
 </html>

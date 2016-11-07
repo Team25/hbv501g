@@ -2,6 +2,10 @@ package project.controller;
 
 import javax.servlet.http.HttpSession;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,11 +41,17 @@ public class EmployeeController {
     	String fullName = currentEmployee.getFullName();
     	if (currentEmployee.getIsAdmin()) {
     		// placeholder return -- TODO decide what to do
-        	model.addAttribute("employeeList", fullName + " is an admin");
+    		List<Employee> employeeList = employeeService.findAll();
+    		ArrayList<String> employeeNames = new ArrayList<String>();
+    		for (ListIterator<Employee> iter = employeeList.listIterator(); iter.hasNext(); ) {
+    		    Employee e = iter.next();
+    		    employeeNames.add(e.getFullName());
+    		}
+        	model.addAttribute("employeeList", employeeNames);
     	}
     	else {
     		// placeholder return -- TODO decide what to do
-    		model.addAttribute("employeeList", fullName + " is not an admin");
+    		model.addAttribute("employeeList", fullName + " is not an admin. Cannot display list.");
     	}
     	return "employeeList";
     }
