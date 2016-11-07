@@ -9,9 +9,14 @@
 </head>
 <body>
 <div class="container">
+<div class="employeelist">
 <c:forEach var="listValue" items="${employeeList}">
 	<li>${listValue}</li>
 </c:forEach>
+</div>
+<div class="navbar">
+<a href="/clock">Return to clock page</a>
+</div>
 </div>
 </body>
 </html>
