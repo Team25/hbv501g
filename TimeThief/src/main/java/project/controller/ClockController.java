@@ -54,7 +54,7 @@ public class ClockController {
     		model.addAttribute("clockInInfo", "You are currently not clocked in");
     	} else{
     		model.addAttribute("clockStatus", "Clock Out!");
-    		model.addAttribute("clockInInfo", "You are currently clocked in");
+    		model.addAttribute("clockInInfo", "You are currently clocked in to " + entry.getDepartment());
     	}
 
     	if (currentEmployee.isAdmin()) 
@@ -81,7 +81,7 @@ public class ClockController {
     	if(entry.getOutTime() == null){
     	 	model.addAttribute("loginFeedback", "clock in successful");
     	 	model.addAttribute("clockStatus", "Clock Out!");
-    		model.addAttribute("clockInInfo", "You are currently clocked in");
+    		model.addAttribute("clockInInfo", "You are currently clocked in to " + entry.getDepartment());
     	} else{
     		model.addAttribute("loginFeedback", "clock out successful");
     		model.addAttribute("clockStatus", "Clock In!");
