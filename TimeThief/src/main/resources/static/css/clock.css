@@ -5,29 +5,36 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  background-color: #eee;
+  background-color: #EAF2F8;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin-top:50px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  border: 5px outset #7fb3d5;
 }
 
-.admin-toolbar {
-	background-color: black;
+.toolbar {
+	background: linear-gradient(to right, #000 20%, #666 70%, #000);
 	color: white;
-	padding:10px;
-	border-bottom:3px ridge grey;
+	padding:10px 30px;;
+	border-bottom:5px ridge #7fb3d5;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 3px 3px 7px rgba(0,0,0,0.5);
 }
+
 
 a {
 	text-decoration: none;
-	color: white;
+	color: black;
+	font-weight: bold;
+	font-size:18px;
 }
 
 a > div {
-	background-color:#555;
+	background-color:#7fb3d5;
 	display: inline-block;
 	padding: 5px;
 	border-radius: 5px;
@@ -58,7 +65,7 @@ p {
 	padding:10px;
 	margin: 0 auto;
 	border-radius: 5px;
-	box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+	border: 3px ridge white;
 }
 
 form {

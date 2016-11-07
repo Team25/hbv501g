@@ -9,8 +9,13 @@
 <title>Clock in/out</title>
 </head>
 <body>
-	<div class="admin-toolbar">
-		${adminToolbar}
+	<div class="toolbar">
+		<div class="admin-toolbar">
+			${adminToolbar}
+		</div>
+		<div class="user-toolbar">
+			<a href="/logout"><div>Logout</div></a>
+		</div>
 	</div>
 	<div class="container">
 		<h1>${user}</h1>
@@ -19,20 +24,11 @@
 		</div>
 		<sf:form action='clock' id='clock-form' method="POST">
 			<div class="form-group">
-				<label for="department">Department:</label>
-				<select form='clock-form' name='department' id='department'>
-					<option value="Overlord">Overlord</option>
-					<option value="BigBossDepartment">BigBossDepartment</option>
-					<option value="JokerDepartment">JokerDepartment</option>
-					<option value="BatmanDepartment">BatmanDepartment</option>
-				</select>
+				${departmentChooser}
 			</div>
 			<button id="clockButton" class="form-control">${clockStatus }</button>
 		</sf:form>
 		<p>${loginFeedback}</p>
 	</div>	
-	<div class="user-toolbar">
-		<a href="/logout">Logout</a>
-	</div>
 </body>
 </html>

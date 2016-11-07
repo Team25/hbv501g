@@ -9,20 +9,22 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/login.css"/>"/>
 </head>
 <body>
-<div class="container">
-${loginError}
-	<sf:form action='login' method="POST">
-		<h1>TimeThief</h1>
-		<div class="form-group">
-			<label for="userId">User name:</label>
-			<input type="text" id="userId" name="userId" placeholder="user name" class="form-control"/>
-		</div>
-		<div class="form-group">
-			<label>Password:</label>
-			<input type="password" id="password" name="password" placeholder="password" class="form-control"/>
-		</div>
-		<button id="loginButton" class="form-control">Login</button>
-	</sf:form>
-</div>
+	<div class="container">
+		<sf:form action='login' method="POST">
+			<h1>TimeThief</h1>
+			<div class="form-group">
+				<label for="userId">User name:</label>
+				<input type="text" id="userId" name="userId" placeholder="user name" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label>Password:</label>
+				<input type="password" id="password" name="password" placeholder="password" class="form-control"/>
+			</div>
+			<button id="loginButton" class="form-control">Login</button>
+		</sf:form>
+		<div class="message">
+		 	${loginError}
+		 </div>
+	</div>
 </body>
 </html>

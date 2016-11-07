@@ -49,7 +49,7 @@ public class LoginController {
     	
     	Employee employee = employeeService.verifyLogin(userId, password);
     	if(employee == null){
-    		model.addAttribute("loginError", "Username or Password is inccorect. Try again");
+    		model.addAttribute("loginError", "Username or Password is incorrect.");
     		return "login";
     	}
     	

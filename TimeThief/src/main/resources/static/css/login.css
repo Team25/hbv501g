@@ -4,13 +4,14 @@ body {
 
 .container {
 	margin:20vh auto;
-	max-width:300px;
+	max-width:400px;
 	border-radius:5px;
 	box-shadow:3px 3px 10px rgba(0,0,0,0.5);
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	background-color:#eee;
-	padding:3%;
+	padding:20px;
 }
 
 form {
@@ -50,4 +51,8 @@ button {
 button:hover {
 	cursor:pointer;
 	background-color:#D4E6F1;
+}
+
+.message {
+	color: red;
 }
