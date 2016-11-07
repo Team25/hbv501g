@@ -36,8 +36,10 @@ public class EmployeeController {
         // If you change "Login" to something else, be sure you have a .jsp
         // file that has the same name
     	
-    	Long empId = (Long)session.getAttribute("loggedInUser");
-    	Employee currentEmployee = employeeService.findOne(empId);
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	Employee currentEmployee = employeeService.findOne(userId);
     	String fullName = currentEmployee.getFullName();
     	if (currentEmployee.isAdmin()) {
     		List<Employee> employeeList = employeeService.findAll();
