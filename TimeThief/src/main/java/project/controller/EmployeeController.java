@@ -39,7 +39,7 @@ public class EmployeeController {
     	Long empId = (Long)session.getAttribute("loggedInUser");
     	Employee currentEmployee = employeeService.findOne(empId);
     	String fullName = currentEmployee.getFullName();
-    	if (currentEmployee.getIsAdmin()) {
+    	if (currentEmployee.isAdmin()) {
     		// placeholder return -- TODO decide what to do
     		List<Employee> employeeList = employeeService.findAll();
     		ArrayList<String> employeeNames = new ArrayList<String>();
