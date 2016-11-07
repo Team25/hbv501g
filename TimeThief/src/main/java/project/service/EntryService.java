@@ -17,7 +17,7 @@ public interface EntryService {
 	
 	List<Entry> findByEmployeeId(Long employeeId);
 	
-	Entry isEmployeeLoggedIn(Long employeeId);
+	Entry isEmployeeClockedIn(Long employeeId);
 	
 	List<Entry> findByState(boolean isVerified);
 	

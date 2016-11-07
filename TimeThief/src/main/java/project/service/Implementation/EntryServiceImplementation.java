@@ -30,12 +30,17 @@ public class EntryServiceImplementation implements EntryService {
 		entryRepository.delete(entry);
 	}
 	
-	public Entry isEmployeeLoggedIn(Long employeeId){
-		List<Entry> entryList = entryRepository.findByEmployeeIdAndOutTimeIsNull(employeeId);
-		if(entryList == null || entryList.isEmpty()){
+	public Entry isEmployeeClockedIn(Long employeeId){
+		try{
+			List<Entry> entryList = entryRepository.findByEmployeeIdAndOutTimeIsNull(employeeId);
+			if(entryList == null || entryList.isEmpty()){
+				return null;
+			}
+			return entryList.get(0);
+		} catch(NullPointerException e){
+			// Why do we get nullpointer Exeption.
 			return null;
 		}
-		return entryList.get(0);
 	}
 	
 	public List<Entry> findByExample(Entry entry){

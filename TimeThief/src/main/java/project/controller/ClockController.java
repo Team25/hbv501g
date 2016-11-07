@@ -43,7 +43,7 @@ public class ClockController {
     	model.addAttribute("clockInInfo", "Welcome");
     	model.addAttribute("user", userId.toString());
     	// see if user is clocked in
-    	Entry entry = entryService.isEmployeeLoggedIn(userId);
+    	Entry entry = entryService.isEmployeeClockedIn(userId);
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
     	} else{
