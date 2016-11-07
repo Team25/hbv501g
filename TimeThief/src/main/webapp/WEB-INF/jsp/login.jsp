@@ -5,15 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>TimeThief Login</title>
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/login.css"/>"/>
 </head>
 <body>
 <div class="container">
 ${loginError}
-<div class="form-group form">
 	<sf:form action='login' method="POST">
-		<div>
-			<label>User name:</label>
+	<h1>TimeThief</h1>
+		<div class="form-group">
+			<label for="userId">User name:</label>
 			<input type="text" id="userId" name="userId" placeholder="user name" class="form-control"/>
 		</div>
 		<div>
@@ -22,7 +23,6 @@ ${loginError}
 		</div>
 		<button id="loginButton" class="form-control">Login</button>
 	</sf:form>
-</div>
 </div>
 </body>
 </html>

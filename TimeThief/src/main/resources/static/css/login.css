@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+}
+
+.container {
+	margin:30% auto;
+	max-width:300px;
+	border-radius:5px;
+	box-shadow:3px 3px 10px rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	background-color:#eee;
+	padding:6%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 { 
+	text-align: center;
+	margin-bottom: 15%;
+}
+	
+
+label {
+	display: block;
+	font-weight: bold;
+	font-size:18px;
+}
+
+.form-control {
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding:5px;
+	font-size:20px;
+}
+
+button {
+	width: 100px;
+	align-self: center;
+	border: none;
+	background-color:#7fb3d5;
+	transition:0.3s;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+	
+}
+
+button:hover {
+	cursor:pointer;
+	background-color:#D4E6F1;
+}
