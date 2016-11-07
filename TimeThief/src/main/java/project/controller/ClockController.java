@@ -115,7 +115,7 @@ public class ClockController {
     	}
 
     	if (currentEmployee.isAdmin()) 
-    		model.addAttribute("adminToolbar", "<a href='employee/view/all'>See Employee List</a>");
+    		model.addAttribute("adminToolbar", "<a href='employee/view/all'><div>Employee List</div></a>");
 
     	return "clock";
     }
