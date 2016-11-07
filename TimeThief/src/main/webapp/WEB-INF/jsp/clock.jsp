@@ -11,10 +11,18 @@
 <div class="container">
 ${clockInInfo}
 <div class="form-group form">
-	<h1>Welcome ${user}</h1>
-	<sf:form action='clock' method="POST">
+	<h1>${user}</h1>
+	
+	<sf:form action='clock' id='clock-form' method="POST">
+		<select form='clock-form' name='department' id='department'>
+  			<option value="Overlord">Overlord</option>
+  			<option value="BigBossDepartment">BigBossDepartment</option>
+  			<option value="JokerDepartment">JokerDepartment</option>
+  			<option value="BatmanDepartment">BatmanDepartment</option>
+		</select>
 		<button id="clockButton" class="form-control">${clockStatus }</button>
 	</sf:form>
+	${loginFeedback }
 </div>
 </div>
 </body>

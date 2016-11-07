@@ -22,7 +22,8 @@ public class ClockController {
     EntryService entryService;
 
     // Dependency Injection
-    @Autowired
+    
+	@Autowired
     public ClockController(EmployeeService employeeService, EntryService entryService) {
         this.employeeService = employeeService;
         this.entryService = entryService;
@@ -40,14 +41,16 @@ public class ClockController {
     	if(userId==null)
     		return "redirect:/login";
     	
-    	model.addAttribute("clockInInfo", "Welcome");
-    	model.addAttribute("user", userId.toString());
+    	
+    	model.addAttribute("user", "Welcom"+userId.toString());
     	// see if user is clocked in
     	Entry entry = entryService.isEmployeeClockedIn(userId);
     	if(entry == null){
     		model.addAttribute("clockStatus", "Clock In!");
+    		model.addAttribute("clockInInfo", "You are not logged in");
     	} else{
     		model.addAttribute("clockStatus", "Clock Out!");
+    		model.addAttribute("clockInInfo", "You are logged in");
     	}
 
     	
@@ -55,8 +58,26 @@ public class ClockController {
     }
 
     @RequestMapping(value = "/clock", method = RequestMethod.POST)
-    public String login(@RequestParam String userId, @RequestParam String password,
-    		Model model, HttpSession session){
+    public String login(@RequestParam String department, Model model, HttpSession session){
+    	
+    	// Check if user is signed in:
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	
+    	model.addAttribute("user", "Welcome "+userId.toString());
+    	
+    	Entry entry = entryService.clock(userId, department);
+    	
+    	if(entry.getOutTime() == null){
+    	 	model.addAttribute("loginFeedback", "clock in successful");
+    	 	model.addAttribute("clockStatus", "Clock Out!");
+    		model.addAttribute("clockInInfo", "You are logged in");
+    	} else{
+    		model.addAttribute("loginFeedback", "clock out successful");
+    		model.addAttribute("clockStatus", "Clock In!");
+    		model.addAttribute("clockInInfo", "You are not logged in");
+    	}
     	
     	return "clock";
     }

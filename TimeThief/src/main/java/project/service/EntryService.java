@@ -23,9 +23,9 @@ public interface EntryService {
 	
 	List<Entry> findByStateAndDepartment(boolean isVerified, String department);
 	
-	Entry clock(Long employeeId);
+	Entry clock(Long employeeId, String department);
 	
-	Entry clockIn(Long employeeId);
+	Entry clockIn(Long employeeId, String department);
 	
 	Entry clockOut(Long employeeId);
 }

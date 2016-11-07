@@ -16,7 +16,6 @@ public interface EntryRepository  extends JpaRepository<Entry, Long>{
     
     Entry findOne(Long id);
 
-    @Query(value = "SELECT * FROM entry WHERE employee_id = ?0 AND out_time IS NULL", nativeQuery = true)
     List<Entry> findByEmployeeIdAndOutTimeIsNull(Long employeeId);
     
     List<Entry> findByState(boolean isVerified);
