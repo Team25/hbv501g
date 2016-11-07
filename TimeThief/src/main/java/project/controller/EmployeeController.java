@@ -40,8 +40,8 @@ public class EmployeeController {
     	Employee currentEmployee = employeeService.findOne(empId);
     	String fullName = currentEmployee.getFullName();
     	if (currentEmployee.isAdmin()) {
-    		// placeholder return -- TODO decide what to do
     		List<Employee> employeeList = employeeService.findAll();
+    		// placeholder list till we figure out how we want to represent this data
     		ArrayList<String> employeeNames = new ArrayList<String>();
     		for (ListIterator<Employee> iter = employeeList.listIterator(); iter.hasNext(); ) {
     		    Employee e = iter.next();
@@ -55,7 +55,7 @@ public class EmployeeController {
         	model.addAttribute("employeeList", employeeNames);
     	}
     	else {
-    		// placeholder return -- TODO decide what to do
+    		// placeholder message till we figure out what to do
     		model.addAttribute("employeeList", fullName + " is not an admin. Cannot display list.");
     	}
     	return "employeeList";
