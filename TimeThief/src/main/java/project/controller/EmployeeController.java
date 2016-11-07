@@ -37,12 +37,12 @@ public class EmployeeController {
     	String fullName = currentEmployee.getFullName();
     	if (currentEmployee.getIsAdmin()) {
     		// placeholder return -- TODO decide what to do
-        	model.addAttribute("loginError", fullName + " is an admin");
+        	model.addAttribute("employeeList", fullName + " is an admin");
     	}
     	else {
     		// placeholder return -- TODO decide what to do
-    		model.addAttribute("loginError", fullName + " is not an admin");
+    		model.addAttribute("employeeList", fullName + " is not an admin");
     	}
-    	return "login";
+    	return "employeeList";
     }
 }
