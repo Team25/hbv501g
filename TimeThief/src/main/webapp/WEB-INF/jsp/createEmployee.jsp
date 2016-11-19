@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,6 +16,9 @@
 	<div class="container">
 		<sf:form action="/employee/create" method="POST" commandName="employee">
 			<h1>Create Employee</h1>
+			<div class="form-group">
+				<!-- <sf:input path="id" type="hidden" id="id" name="id" class="form-control"/> -->
+			</div>
 			<div class="form-group">
 				<label for="full_name">Full Name:</label>
 				<sf:input path="fullName" type="text" id="full_name" name="full_name" placeholder="Full name" class="form-control"/>
@@ -41,7 +45,8 @@
 			</div>
 			<div class="form-group">
 				<label>Date of Employment:</label>
-				<sf:input path="dateOfEmployment" type="text" id="first_day" name="first_day" class="form-control"/>
+				<fmt:formatDate value="${employee.dateOfEmployment}" var="dateString" pattern="dd/MM/yyyy" /> 	 
+				<sf:input path="dateOfEmployment" type="text" value = "${dateString}" id="first_day" name="first_day" placeholder="dd/mm/yyyy" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label>Hourly Rate:</label>
@@ -55,6 +60,7 @@
 			<button id="createButton" class="form-control">Create</button>
 		</sf:form>
 		<div class="message">
+		 	${createMessage}
 		 </div>
 	</div>
 </body>

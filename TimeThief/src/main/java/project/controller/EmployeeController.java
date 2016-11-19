@@ -1,6 +1,7 @@
 package project.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.ListIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -74,7 +76,9 @@ public class EmployeeController {
     	Employee currentEmployee = employeeService.findOne(userId);
     	
     	if (currentEmployee.isAdmin()) {
-    		model.addAttribute("employee", new Employee());
+    		Employee formEmployee = new Employee();
+    		//formEmployee = employeeService.save(formEmployee);
+    		model.addAttribute("employee", formEmployee);
     		return "createEmployee";
     	}
     	
@@ -83,7 +87,8 @@ public class EmployeeController {
     }
     
     @RequestMapping(value = "/employee/create", method = RequestMethod.POST)
-    public String createEmployeePost(@ModelAttribute("employee") Employee employee, 
+    public String createEmployeePost(@Valid @ModelAttribute("employee") Employee employee, 
+    									BindingResult result,
     									HttpSession session, 
     									Model model){
     	Long userId = (Long)session.getAttribute("loggedInUser");
@@ -94,8 +99,18 @@ public class EmployeeController {
     	Employee currentEmployee = employeeService.findOne(userId);
     	
     	if (currentEmployee.isAdmin()) {
-    		Employee newEmployee = employeeService.save(employee);
-    		return "createEmployee";
+    		if(result.hasErrors()){
+    			model.addAttribute("createMessage", result.getFieldError().getField() + " contains some error");
+    			return "createEmployee";
+    		}
+    		else{
+    			Employee newEmployee = employeeService.save(employee);
+    			if(newEmployee==null)
+    				model.addAttribute("createMessage", "Saving employee to DB failed.");
+    			else
+    				model.addAttribute("createMessage", "Creating employee Successful.");
+    			return "createEmployee";
+    		}
     	}
     	
     	// TODO: redirect to "unauthorized" site or something else

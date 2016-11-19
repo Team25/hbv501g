@@ -70,7 +70,7 @@ public class Employee {
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
