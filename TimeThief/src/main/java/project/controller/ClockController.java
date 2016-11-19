@@ -67,7 +67,7 @@ public class ClockController {
     		model.addAttribute("clockInInfo", "<div style='background-color:#58D68D'><p>You are currently clocked in to " + entry.getDepartment() + "</p></div>");
     	}
 
-    	if (currentEmployee.isAdmin()) 
+    	if (currentEmployee.getIsAdmin()) 
     		model.addAttribute("adminToolbar", "<a href='employee/view/all'><div>Employee list</div></a>");
     	
         return "clock";
@@ -114,7 +114,7 @@ public class ClockController {
     		model.addAttribute("departmentChooser", select);
     	}
 
-    	if (currentEmployee.isAdmin()) 
+    	if (currentEmployee.getIsAdmin()) 
     		model.addAttribute("adminToolbar", "<a href='employee/view/all'><div>Employee List</div></a>");
 
     	return "clock";

@@ -56,6 +56,10 @@
 				<label>Default Department:</label>
 				<sf:input path="defaultDepartment" type="text" id="default_department" name="default_department" placeholder="batman department" class="form-control"/>
 			</div>
+			<div class="form-group">
+				<label>Admin privileges:</label>
+				<sf:checkbox path="isAdmin" id="is_admin" class="form-control"/>
+			</div>
 			
 			<button id="createButton" class="form-control">Create</button>
 		</sf:form>

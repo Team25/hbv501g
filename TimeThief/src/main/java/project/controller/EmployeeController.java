@@ -44,7 +44,7 @@ public class EmployeeController {
     		return "redirect:/login";
     	Employee currentEmployee = employeeService.findOne(userId);
     	String fullName = currentEmployee.getFullName();
-    	if (currentEmployee.isAdmin()) {
+    	if (currentEmployee.getIsAdmin()) {
     		List<Employee> employeeList = employeeService.findAll();
     		// placeholder list till we figure out how we want to represent this data
     		ArrayList<String> employeeNames = new ArrayList<String>();
@@ -54,7 +54,7 @@ public class EmployeeController {
     		    empString += " - " + e.getSocialSecurity();
     		    empString += " - " + e.getHomeAddress();
     		    empString += " - " + e.getPhoneNumber();
-    		    empString += " - Admin:" + e.isAdmin();
+    		    empString += " - Admin:" + e.getIsAdmin();
     		    employeeNames.add(empString);
     		}
         	model.addAttribute("employeeList", employeeNames);
@@ -75,7 +75,7 @@ public class EmployeeController {
     	
     	Employee currentEmployee = employeeService.findOne(userId);
     	
-    	if (currentEmployee.isAdmin()) {
+    	if (currentEmployee.getIsAdmin()) {
     		Employee formEmployee = new Employee();
     		//formEmployee = employeeService.save(formEmployee);
     		model.addAttribute("employee", formEmployee);
@@ -98,7 +98,7 @@ public class EmployeeController {
     	
     	Employee currentEmployee = employeeService.findOne(userId);
     	
-    	if (currentEmployee.isAdmin()) {
+    	if (currentEmployee.getIsAdmin()) {
     		if(result.hasErrors()){
     			model.addAttribute("createMessage", result.getFieldError().getField() + " contains some error");
     			return "createEmployee";
