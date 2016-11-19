@@ -11,11 +11,11 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	/*
+	
 	@ManyToOne
 	@JoinColumn(name = "entryId")
 	private Entry entry;
-	*/
+	
 	private Long employeeId;
 	private String text;
 	
@@ -25,7 +25,7 @@ public class Comment {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	/*
+	
 	public Entry getEntry() {
 		return entry;
 	}
@@ -33,7 +33,7 @@ public class Comment {
 	public void setEntry(Entry entry) {
 		this.entry = entry;
 	}
-	*/
+	
 	public Long getEmployeeId() {
 		return employeeId;
 	}

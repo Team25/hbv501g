@@ -1,6 +1,7 @@
 package project.persistence.entities;
 
 import java.util.Date;
+//import java.sql.Date;
 import javax.persistence.*;
 
 @Entity
@@ -24,8 +25,7 @@ public class Employee {
 	private String defaultDepartment;
 	private boolean isAdmin;
 	
-	public Employee(){
-		
+	public Employee(){	
 	}
 	
 	public Employee(String fullName,
@@ -94,10 +94,10 @@ public class Employee {
 	public void setHomeAddress(String homeAddrass) {
 		this.homeAddress = homeAddrass;
 	}
-	public Date getDateOfEmployement() {
+	public Date getDateOfEmployment() {
 		return dateOfEmployment;
 	}
-	public void setDateOfEmployement(Date dateOfEmployement) {
+	public void setDateOfEmployment(Date dateOfEmployement) {
 		this.dateOfEmployment = dateOfEmployement;
 	}
 	public float getHourlyRate() {

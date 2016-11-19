@@ -9,6 +9,7 @@ import java.util.ListIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,5 +62,43 @@ public class EmployeeController {
     		model.addAttribute("employeeList", fullName + " is not an admin. Cannot display list.");
     	}
     	return "employeeList";
+    }
+    
+    @RequestMapping(value = "/employee/create", method = RequestMethod.GET)
+    public String createEmployeeGet(HttpSession session, Model model){
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	
+    	if(userId==null)
+    		return "redirect:/login";
+    	
+    	Employee currentEmployee = employeeService.findOne(userId);
+    	
+    	if (currentEmployee.isAdmin()) {
+    		model.addAttribute("employee", new Employee());
+    		return "createEmployee";
+    	}
+    	
+    	// TODO: redirect to "unauthorized" site or something else
+    	return "redirect:/login";
+    }
+    
+    @RequestMapping(value = "/employee/create", method = RequestMethod.POST)
+    public String createEmployeePost(@ModelAttribute("employee") Employee employee, 
+    									HttpSession session, 
+    									Model model){
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	
+    	if(userId==null)
+    		return "redirect:/login";
+    	
+    	Employee currentEmployee = employeeService.findOne(userId);
+    	
+    	if (currentEmployee.isAdmin()) {
+    		Employee newEmployee = employeeService.save(employee);
+    		return "createEmployee";
+    	}
+    	
+    	// TODO: redirect to "unauthorized" site or something else
+    	return "redirect:/login";
     }
 }
