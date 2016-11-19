@@ -15,6 +15,7 @@
 </c:forEach>
 </div>
 <div class="navbar">
+<a href="/employee/create">Create new employee</a>
 <a href="/clock">Return to clock page</a>
 </div>
 </div>
