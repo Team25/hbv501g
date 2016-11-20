@@ -11,7 +11,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 	Employee save(Employee employee);
 
     void delete(Employee employee);
-
+    
     List<Employee> findAll();
     
     List<Employee> findByFullName(String fullName);

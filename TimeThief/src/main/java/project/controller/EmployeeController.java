@@ -91,13 +91,15 @@ public class EmployeeController {
     	Employee currentEmployee = employeeService.findOne(userId);
     	Employee selectedEmployee = employeeService.findOne(employeeId);
     	if (currentEmployee.getIsAdmin()) {
-    		model.addAttribute("employee", selectedEmployee);
+    		model.addAttribute("employee", new Employee());
+    		model.addAttribute("employeeToUpdate", selectedEmployee);
     		model.addAttribute("employeeId", selectedEmployee.getId().toString());
     		return "updateEmployee";
     	} else if(userId == employeeId){
+    		model.addAttribute("employee", new Employee());
     		model.addAttribute("restrictions", "readonly");
     		model.addAttribute("hidden", "hidden");
-    		model.addAttribute("employee", currentEmployee);
+    		model.addAttribute("employeeToUpdate", currentEmployee);
     		model.addAttribute("employeeId", selectedEmployee.getId().toString());
     		return "updateEmployee";
     	}
