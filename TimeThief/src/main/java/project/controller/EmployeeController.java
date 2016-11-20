@@ -47,18 +47,7 @@ public class EmployeeController {
     	String fullName = currentEmployee.getFullName();
     	if (currentEmployee.getIsAdmin()) {
     		List<Employee> employeeList = employeeService.findAll();
-    		// placeholder list till we figure out how we want to represent this data
-    		ArrayList<String> employeeNames = new ArrayList<String>();
-    		for (ListIterator<Employee> iter = employeeList.listIterator(); iter.hasNext(); ) {
-    		    Employee e = iter.next();
-    		    String empString = e.getFullName();
-    		    empString += " - " + e.getSocialSecurity();
-    		    empString += " - " + e.getHomeAddress();
-    		    empString += " - " + e.getPhoneNumber();
-    		    empString += " - Admin:" + e.getIsAdmin();
-    		    employeeNames.add(empString);
-    		}
-        	model.addAttribute("employeeList", employeeNames);
+    		model.addAttribute("employeeList", employeeList);
     	}
     	else {
     		// placeholder message till we figure out what to do
