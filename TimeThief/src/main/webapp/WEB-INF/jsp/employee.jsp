@@ -22,8 +22,11 @@
 </ul>
 </div>
 <div class="navbar">
-<a href="/employee/update/${employee.id}">Update employee</a>
-<a href="/clock">Return to clock page</a>
+	<a href="/employee/update/${employee.id}">Update employee</a>
+	<a href="/clock">Return to clock page</a>
+	<div class="admin-toolbar">
+		${adminToolbar}
+	</div>
 </div>
 </div>
 </body>

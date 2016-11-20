@@ -66,6 +66,7 @@ public class EmployeeController {
     	Employee selectedEmployee = employeeService.findOne(employeeId);
     	if (currentEmployee.getIsAdmin() || currentUserId == employeeId) {
     		model.addAttribute("employee", selectedEmployee);
+    		model.addAttribute("adminToolbar", "<a href='/employee/view/all'><div>Return to employee list</div></a>");    		
     		return "employee";
     	}
     	
@@ -84,6 +85,7 @@ public class EmployeeController {
     		model.addAttribute("employee", new Employee());
     		model.addAttribute("employeeToUpdate", selectedEmployee);
     		model.addAttribute("employeeId", selectedEmployee.getId().toString());
+    		model.addAttribute("adminToolbar", "<a href='/employee/view/all'><div>Return to employee list</div></a>");
     		return "updateEmployee";
     	} else if(userId == employeeId){
     		model.addAttribute("employee", new Employee());
