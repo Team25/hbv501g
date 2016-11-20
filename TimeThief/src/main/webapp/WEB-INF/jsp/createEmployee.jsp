@@ -17,9 +17,6 @@
 		<sf:form action="/employee/create" method="POST" commandName="employee">
 			<h1>Create Employee</h1>
 			<div class="form-group">
-				<!-- <sf:input path="id" type="hidden" id="id" name="id" class="form-control"/> -->
-			</div>
-			<div class="form-group">
 				<label for="full_name">Full Name:</label>
 				<sf:input path="fullName" type="text" id="full_name" name="full_name" placeholder="Full name" class="form-control"/>
 			</div>

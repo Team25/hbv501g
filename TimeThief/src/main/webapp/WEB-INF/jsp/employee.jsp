@@ -9,20 +9,20 @@
 </head>
 <body>
 <div class="container">
-<div class="employeelist">
+<div class="employee_information">
 <ul>
-	<li>${employee.fullName}</li>
-	<li>${employee.loginName}</li>
-	<li>${employee.socialSecurity}</li>
-	<li>${employee.phoneNumber}</li>
-	<li>${employee.homeAddress}</li>
-	<li>${employee.dateOfEmployment}</li>
-	<li>${employee.hourlyRate}</li>
-	<li>${employee.defaultDepartment}</li>
+	<li>Full name: ${employee.fullName}</li>
+	<li>Login name: ${employee.loginName}</li>
+	<li>Social Security number: ${employee.socialSecurity}</li>
+	<li>Phone number${employee.phoneNumber}</li>
+	<li>Homa address${employee.homeAddress}</li>
+	<li>Date of employment: ${employee.dateOfEmployment}</li>
+	<li>Hourly rate: ${employee.hourlyRate}</li>
+	<li>Default department: ${employee.defaultDepartment}</li>
 </ul>
 </div>
 <div class="navbar">
-<a href="/employee/update">Update employee</a>
+<a href="/employee/update/${employee.id}">Update employee</a>
 <a href="/clock">Return to clock page</a>
 </div>
 </div>

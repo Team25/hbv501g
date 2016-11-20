@@ -82,6 +82,60 @@ public class EmployeeController {
        	return "unauthorized";
     }
     
+    @RequestMapping(value = "/employee/update/{employeeId}", method = RequestMethod.GET)
+    public String updateEmployeeGet(@PathVariable Long employeeId, HttpSession session, Model model){
+    	
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	Employee currentEmployee = employeeService.findOne(userId);
+    	Employee selectedEmployee = employeeService.findOne(employeeId);
+    	if (currentEmployee.getIsAdmin()) {
+    		model.addAttribute("employee", selectedEmployee);
+    		model.addAttribute("employeeId", selectedEmployee.getId().toString());
+    		return "updateEmployee";
+    	} else if(userId == employeeId){
+    		model.addAttribute("restrictions", "readonly");
+    		model.addAttribute("hidden", "hidden");
+    		model.addAttribute("employee", currentEmployee);
+    		model.addAttribute("employeeId", selectedEmployee.getId().toString());
+    		return "updateEmployee";
+    	}
+    	
+       	return "unauthorized";
+    }
+    
+    @RequestMapping(value = "/employee/update/{employeeId}", method = RequestMethod.POST)
+    public String updateEmployeePost(@PathVariable Long employeeId, @Valid @ModelAttribute("employee") Employee employee, 
+			BindingResult result,
+			HttpSession session, 
+			Model model){
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+
+    	if(userId==null)
+    		return "redirect:/login";
+	
+    	Employee currentEmployee = employeeService.findOne(userId);
+	
+    	if (currentEmployee.getIsAdmin() || employeeId.equals(userId)) {
+    		if(result.hasErrors()){
+    			model.addAttribute("updateMessage", result.getFieldError().getField() + " contains some error");
+    			return "updateEmployee";
+    		}
+    		else{
+    			Employee newEmployee = employeeService.save(employee);
+    			if(newEmployee==null)
+    				model.addAttribute("updateMessage", "Updating employee to DB failed.");
+    			else
+    				model.addAttribute("updateMessage", "Updating employee Successful.");
+    			return "updateEmployee";
+    		}
+    	}
+	
+    	return "unauthorized";
+	}
+    
+    
     @RequestMapping(value = "/employee/create", method = RequestMethod.GET)
     public String createEmployeeGet(HttpSession session, Model model){
     	Long userId = (Long)session.getAttribute("loggedInUser");
