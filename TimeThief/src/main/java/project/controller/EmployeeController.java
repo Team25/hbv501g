@@ -59,12 +59,13 @@ public class EmployeeController {
     @RequestMapping(value = "/employee/view/{employeeId}", method = RequestMethod.GET)
     public String viewEmployeeById(@PathVariable Long employeeId, HttpSession session, Model model){
     	
-    	Long userId = (Long)session.getAttribute("loggedInUser");
-    	if(userId==null)
+    	Long currentUserId = (Long)session.getAttribute("loggedInUser");
+    	if(currentUserId==null)
     		return "redirect:/login";
-    	Employee currentEmployee = employeeService.findOne(userId);
-    	if (currentEmployee.getIsAdmin() || userId == employeeId) {
-    		model.addAttribute("employee", currentEmployee);
+    	Employee currentEmployee = employeeService.findOne(currentUserId);
+    	Employee selectedEmployee = employeeService.findOne(employeeId);
+    	if (currentEmployee.getIsAdmin() || currentUserId == employeeId) {
+    		model.addAttribute("employee", selectedEmployee);
     		return "employee";
     	}
     	
