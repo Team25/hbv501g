@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,6 +67,21 @@ public class EmployeeController {
     	return "employeeList";
     }
     
+    @RequestMapping(value = "/employee/view/{employeeId}", method = RequestMethod.GET)
+    public String viewEmployeeById(@PathVariable Long employeeId, HttpSession session, Model model){
+    	
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	Employee currentEmployee = employeeService.findOne(userId);
+    	if (currentEmployee.getIsAdmin() || userId == employeeId) {
+    		model.addAttribute("employee", currentEmployee);
+    		return "employee";
+    	}
+    	
+       	return "unauthorized";
+    }
+    
     @RequestMapping(value = "/employee/create", method = RequestMethod.GET)
     public String createEmployeeGet(HttpSession session, Model model){
     	Long userId = (Long)session.getAttribute("loggedInUser");
@@ -82,8 +98,7 @@ public class EmployeeController {
     		return "createEmployee";
     	}
     	
-    	// TODO: redirect to "unauthorized" site or something else
-    	return "redirect:/login";
+    	return "unauthorized";
     }
     
     @RequestMapping(value = "/employee/create", method = RequestMethod.POST)
@@ -113,7 +128,6 @@ public class EmployeeController {
     		}
     	}
     	
-    	// TODO: redirect to "unauthorized" site or something else
-    	return "redirect:/login";
+    	return "unauthorized";
     }
 }
