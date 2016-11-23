@@ -9,8 +9,7 @@
 </head>
 <body>
 <div class="container">
-<div class="employeelist">
-<table>
+<div class="entry">
 	<ul>
 		<li>In Time: ${entry.inTime}</li>
 		<li>Out Time: ${entry.outTime}</li>
@@ -26,16 +25,34 @@
 			</c:choose>
 		</li>
 	</ul>
-	<c:forEach var="listValue" items="${entry.comments}">
-	<div class="comment">
-		<h3>${listValue.employeeId}</h3>
-		<p>${listValue.text}</p>
+	<div class="comment_container">
+		<c:forEach var="listValue" items="${entry.comments}">
+		<div class="comment">
+			<h3>${listValue.employeeName}</h3>
+			<p>${listValue.text}</p>
+		</div>
+		</c:forEach>
 	</div>
-	</c:forEach>
-</table>
+	<sf:form method="POST" commandName="comment" action="/entry/view/own/${entry.id}">
+
+        <table>
+            <tr>
+                <td>Comment:</td>
+                    <%--the `path` attribute matches the `text` attribute of the Entity that was passed in the model--%>
+                <td><sf:textarea path="text" type="text" placeholder="Comment..."/></td>
+            </tr>
+        </table>
+
+        <input type="submit" VALUE="Comment!"/>
+
+    </sf:form>
+	${commentMessage}
 </div>
 <div class="navbar">
+<a href="/entry/view/own">back to your entries view</a>
+
 <a href="/clock">Return to clock page</a>
+
 </div>
 </div>
 </body>
