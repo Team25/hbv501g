@@ -63,7 +63,7 @@ public class EntryServiceImplementation implements EntryService {
 	
 	@Override
 	public List<Entry> findByEmployeeId(Long employeeId){
-		return entryRepository.findById(new Long(1));
+		return entryRepository.findByEmployeeId(employeeId);
 	}
 	
 	// TODO laga

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Employee;
+import project.persistence.entities.Entry;
 import project.service.EntryService;
 
 @Controller
@@ -30,6 +31,19 @@ public class EntryController {
     @Autowired
     public EntryController(EntryService entryService) {
         this.entryService = entryService;
+    }
+    
+    @RequestMapping(value = "/entry/view/own", method = RequestMethod.GET)
+    public String viewOwnEntriesDefault(HttpSession session, Model model){
+    	
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	
+    	List<Entry> entries = entryService.findByEmployeeId(userId);
+    	model.addAttribute("entryList", entries);
+    	
+    	return "entries/entryList";
     }
     
 }

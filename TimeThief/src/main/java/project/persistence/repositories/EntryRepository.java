@@ -17,11 +17,14 @@ public interface EntryRepository  extends JpaRepository<Entry, Long>{
 
     List<Entry> findByEmployeeIdAndOutTimeIsNull(Long employeeId);
     
+    List<Entry> findByEmployeeId(Long employeeId);
+    
     List<Entry> findByIsVerified(boolean isVerified);
     
     List<Entry> findByIsVerifiedAndDepartment(boolean isVerified, String department);
         
     List<Entry> findById(Long id);
+    
     
 
 }
