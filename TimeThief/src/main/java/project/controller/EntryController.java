@@ -56,7 +56,7 @@ public class EntryController {
     	Entry currentEntry = entryService.findOne(entryId);
     	if(currentEntry.getEmployeeId().equals(userId)){
     		model.addAttribute("entry", currentEntry);
-    		return "entryOwn";
+    		return "entries/entryOwn";
     	}
        	return "unauthorized";
     }

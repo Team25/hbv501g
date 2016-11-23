@@ -15,8 +15,8 @@ public class Entry {
 	private Long id;
 	private Long employeeId;
 	
-	//@OneToMany(mappedBy = "entry")
-	//private List<Comment> comments;
+	@OneToMany(mappedBy = "entry")
+	private List<Comment> comments;
 	private String department;
 	private Timestamp inTime;
 	private Timestamp outTime;
@@ -35,14 +35,14 @@ public class Entry {
 		this.employeeId = employeeId;
 	}
 
-	/*
+	
 	public List<Comment> getComments() {
 		return comments;
 	}
 	
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
-	}*/
+	}
 	public String getDepartment() {
 		return department;
 	}
