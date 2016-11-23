@@ -1,0 +1,61 @@
+body {
+	margin: 0;
+  background: linear-gradient(to right, #FFF , #AEAEAE);
+}
+
+.container {
+  margin:15vh auto;
+  max-width:90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: arial;
+  font-size: 1.3rem;
+}
+
+
+th {
+  background-color: #7fb3d5;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  border-bottom: 1px solid #7fb3d5;
+}
+
+tr:hover {
+  color: white;
+  background-color: #7fb3d5;
+}
+
+tr:hover a {
+  color: white;
+}
+
+a{
+  color:#7Fbcdd;
+  text-decoration: none;
+}
+
+
+.navbar {
+  margin:5vh auto;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+  margin:0 10px;
+}

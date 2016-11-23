@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of employees</title>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/employeeList.css"/>"/>
 </head>
 <body>
 <div class="container">
@@ -32,8 +33,8 @@
 </table>
 </div>
 <div class="navbar">
-<a href="/employee/create">Create new employee</a>
-<a href="/clock">Return to clock page</a>
+<a href="/employee/create" class="button">Create new employee</a>
+<a href="/clock" class="button">Return to clock page</a>
 </div>
 </div>
 </body>
