@@ -15,7 +15,9 @@ public class Entry {
 	private Long id;
 	private Long employeeId;
 	
-	@OneToMany(mappedBy = "entry")
+	@OneToMany(mappedBy = "entry",
+			cascade = CascadeType.ALL,
+			orphanRemoval = true)
 	private List<Comment> comments;
 	private String department;
 	private Timestamp inTime;
