@@ -23,6 +23,8 @@ public interface EmployeeService {
 	
 	List<Employee> findByLoginName(String fullName);
 	
+	List<Employee> findByLoginNameOrFullName(String searchString);
+	
 	Employee findOne(Long id);
 	
 	Employee verifyLogin(String user, String password);

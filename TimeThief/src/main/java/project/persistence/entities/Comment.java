@@ -17,6 +17,7 @@ public class Comment {
 	private Entry entry;
 	
 	private Long employeeId;
+	private String employeeName;
 	private String text;
 	
 	public Long getId() {
@@ -39,6 +40,12 @@ public class Comment {
 	}
 	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
+	}
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 	public String getText() {
 		return text;

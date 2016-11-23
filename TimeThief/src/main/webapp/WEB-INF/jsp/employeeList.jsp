@@ -10,6 +10,12 @@
 </head>
 <body>
 <div class="container">
+<div class="employeeSearch">
+	<form method="get">
+		<input type="text" name="findEmployee" placeholder="Find by name/user">
+		<input type="submit" value="Search">
+	</form>
+</div>
 <div class="employeelist">
 <table>
 	<tr>

@@ -14,6 +14,7 @@
 			${adminToolbar}
 		</div>
 		<div class="user-toolbar">
+			<a href="/entry/view/own"><div>View own entries</div></a>
 			<a href="/logout"><div>Logout</div></a>
 		</div>
 	</div>
