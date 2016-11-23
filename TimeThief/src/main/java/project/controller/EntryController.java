@@ -46,4 +46,19 @@ public class EntryController {
     	return "entries/entryList";
     }
     
+    @RequestMapping(value = "/entry/view/own/{entryId}", method = RequestMethod.GET)
+    public String viewEmployeeById(@PathVariable Long entryId, HttpSession session, Model model){
+    	
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	
+    	Entry currentEntry = entryService.findOne(entryId);
+    	if(currentEntry.getEmployeeId().equals(userId)){
+    		model.addAttribute("entry", currentEntry);
+    		return "entryOwn";
+    	}
+       	return "unauthorized";
+    }
+    
 }

@@ -20,7 +20,7 @@
 	</tr>
 	<c:forEach var="listValue" items="${entryList}">
 	<tr>
-		<td><a href="${listValue.id}">View Entry</a></td>
+		<td><a href="own/${listValue.id}">View Entry</a></td>
 		<td>${listValue.inTime}</td>
 		<td>${listValue.outTime}</td>
 		<td>${listValue.department}</td>
