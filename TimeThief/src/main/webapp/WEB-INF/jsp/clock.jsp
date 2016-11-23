@@ -9,27 +9,29 @@
 <title>Clock in/out</title>
 </head>
 <body>
-	<div class="toolbar">
-		<div class="admin-toolbar">
+	<div class="background-container">
+		<div class="toolbar">
+		  <div class="admin-toolbar">
 			${adminToolbar}
 		</div>
-		<div class="user-toolbar">
-			<a href="/entry/view/own"><div>View own entries</div></a>
+		  <div class="user-toolbar">
+		    <a href="/entry/view/own"><div>View own entries</div></a>
 			<a href="/logout"><div>Logout</div></a>
+		  </div>
+	    </div>
+		<div class="container">
+			<h1>${user}</h1>
+			<div class="status-box">
+				${clockInInfo}
+			</div>
+			<sf:form action='clock' id='clock-form' method="POST">
+				<div class="form-group">
+					${departmentChooser}
+				</div>
+				<button id="clockButton" class="form-control">${clockStatus }</button>
+			</sf:form>
+			<p>${loginFeedback}</p>
 		</div>
 	</div>
-	<div class="container">
-		<h1>${user}</h1>
-		<div class="status-box">
-			${clockInInfo}
-		</div>
-		<sf:form action='clock' id='clock-form' method="POST">
-			<div class="form-group">
-				${departmentChooser}
-			</div>
-			<button id="clockButton" class="form-control">${clockStatus }</button>
-		</sf:form>
-		<p>${loginFeedback}</p>
-	</div>	
 </body>
 </html>
