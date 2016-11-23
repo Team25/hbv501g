@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-	background-image: linear-gradient(to right, #fff, #aeaeae);
+	background-image: linear-gradient(to right, #fff, #ccc);
 	background-size: cover;
 	background-position: 0% 50%;
 	top: 0;

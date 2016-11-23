@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container">
-	<img class="header-text" src="/Images/timethtransp.png" />
+	<img class="header-text" src="/Images/timethtranspblue.png" />
       <div class="middler">
 		<sf:form action='login' method="POST">
 			<input type="text" id="userId" name="userId" placeholder="user name" class="form-control"/>
