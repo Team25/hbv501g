@@ -34,13 +34,6 @@ public class EmployeeController {
     
     @RequestMapping(value = "/employee/view/all", method = RequestMethod.GET)
     public String viewAllEmployees(HttpSession session, Model model, @RequestParam(value="findEmployee", required=false, defaultValue="") String searchString) {
-    	if (!searchString.isEmpty()) {
-    		List<Employee> employeeList = employeeService.findByLoginNameOrFullName(searchString);
-    		model.addAttribute("employeeList", employeeList);
-    		return "employeeList";
-    	}
-    	else
-    		System.out.println("No user requested");
         // The string "Login" that is returned here is the name of the view
         // (the Login.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Login" to something else, be sure you have a .jsp
@@ -50,9 +43,15 @@ public class EmployeeController {
     	if(userId==null)
     		return "redirect:/login";
     	Employee currentEmployee = employeeService.findOne(userId);
+
     	String fullName = currentEmployee.getFullName();
+    	List<Employee> employeeList;
     	if (currentEmployee.getIsAdmin()) {
-    		List<Employee> employeeList = employeeService.findAll();
+        	if (!searchString.isEmpty()) {
+        		employeeList = employeeService.findByLoginNameOrFullName(searchString);
+        	} else { 
+        		employeeList = employeeService.findAll();
+        	}
     		model.addAttribute("employeeList", employeeList);
     	}
     	else {
