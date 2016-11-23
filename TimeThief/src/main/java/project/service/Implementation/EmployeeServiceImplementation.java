@@ -44,6 +44,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	}
 	
 	@Override
+	public List<Employee> findByLoginNameOrFullName(String searchString) {
+		return repository.findByLoginNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(searchString, searchString);
+	}
+	
+	@Override
 	public Employee findOne(Long id){
 		return repository.findOne(id);
 	}

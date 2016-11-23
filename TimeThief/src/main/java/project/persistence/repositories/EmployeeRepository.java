@@ -18,6 +18,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     
     List<Employee> findByLoginName(String name);
     
+    List<Employee> findByLoginNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(String loginName, String fullName);
+    
     Employee findOne(Long id);
 	
 }
