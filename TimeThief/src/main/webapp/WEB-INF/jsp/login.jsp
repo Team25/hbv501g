@@ -10,21 +10,17 @@
 </head>
 <body>
 	<div class="container">
+	<img class="header-text" src="/Images/timethtransp.png" />
+      <div class="middler">
 		<sf:form action='login' method="POST">
-			<h1>TimeThief</h1>
-			<div class="form-group">
-				<label for="userId">User name:</label>
-				<input type="text" id="userId" name="userId" placeholder="user name" class="form-control"/>
-			</div>
-			<div class="form-group">
-				<label>Password:</label>
-				<input type="password" id="password" name="password" placeholder="password" class="form-control"/>
-			</div>
+			<input type="text" id="userId" name="userId" placeholder="user name" class="form-control"/>
+			<input type="password" id="password" name="password" placeholder="password" class="form-control"/>
 			<button id="loginButton" class="form-control">Login</button>
 		</sf:form>
 		<div class="message">
 		 	${loginError}
-		 </div>
+		</div>
+      </div>
 	</div>
 </body>
 </html>
