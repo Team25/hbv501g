@@ -51,7 +51,7 @@ public class EntryController {
     }
     
     @RequestMapping(value = "/entry/view/own/{entryId}", method = RequestMethod.GET)
-    public String viewEmployeeById(@PathVariable Long entryId, HttpSession session, Model model){
+    public String viewOwnEntryById(@PathVariable Long entryId, HttpSession session, Model model){
     	
     	Long userId = (Long)session.getAttribute("loggedInUser");
     	if(userId==null)
@@ -68,7 +68,7 @@ public class EntryController {
     }
     
     @RequestMapping(value = "entry/view/own/{entryId}", method = RequestMethod.POST)
-    public String viewEntryComments(@PathVariable Long entryId, @Valid @ModelAttribute("comment") Comment comment, 
+    public String viewOwnEntryCommentsPost(@PathVariable Long entryId, @Valid @ModelAttribute("comment") Comment comment, 
 			BindingResult result,
 			HttpSession session, 
 			Model model){
@@ -100,5 +100,23 @@ public class EntryController {
     	
     	return "unauthorized";
 	}
+    
+    @RequestMapping(value = "/entry/view/all", method = RequestMethod.GET)
+    public String viewAllEntries(HttpSession session, Model model){
+    	
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	
+    	Employee currentEmployee = employeeService.findOne(userId);
+    	if(!currentEmployee.getIsAdmin()){
+    		return "unauthorized";
+    	}
+    	Entry example = new Entry();
+    	List<Entry> entries = entryService.findByExample(example);
+    	model.addAttribute("entryList", entries);
+    	
+    	return "entries/entryList";
+    }
     
 }

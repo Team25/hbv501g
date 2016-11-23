@@ -8,9 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Create Employee</title>
-<!--
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/login.css"/>"/> 
--->
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/createEmployee.css"/>"/> 
 </head>
 <body>
 	<div class="container">
