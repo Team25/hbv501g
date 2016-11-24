@@ -62,6 +62,11 @@ public class EntryServiceImplementation implements EntryService {
 	}
 	
 	@Override
+	public List<Entry> findAll(){
+		return entryRepository.findAll();
+	}
+	
+	@Override
 	public List<Entry> findByEmployeeId(Long employeeId){
 		return entryRepository.findByEmployeeId(employeeId);
 	}

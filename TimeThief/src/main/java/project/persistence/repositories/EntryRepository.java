@@ -14,6 +14,8 @@ public interface EntryRepository  extends JpaRepository<Entry, Long>{
     void delete(Entry entry);
     
     Entry findOne(Long id);
+    
+    List<Entry> findAll();
 
     List<Entry> findByEmployeeIdAndOutTimeIsNull(Long employeeId);
     

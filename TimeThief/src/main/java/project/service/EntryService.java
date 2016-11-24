@@ -15,6 +15,8 @@ public interface EntryService {
 	
 	Entry findOne(Long id);
 	
+	List<Entry> findAll();
+	
 	List<Entry> findByEmployeeId(Long employeeId);
 	
 	Entry isEmployeeClockedIn(Long employeeId);
