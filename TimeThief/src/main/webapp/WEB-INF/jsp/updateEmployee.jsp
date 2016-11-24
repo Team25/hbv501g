@@ -12,7 +12,6 @@
 </head>
 <body>
 	<div class="container">
-<%@ include file="toolbars.jsp" %>	
 		<sf:form action="/employee/update/${employeeId }" method="POST" commandName="employee">
 			<h1>Update employee: ${employeeToUpdate.fullName}</h1>				
 			<div class="form-group">
