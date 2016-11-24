@@ -10,7 +10,6 @@
 </head>
 <body>
 <div class="container">
-<%@ include file="toolbars.jsp" %>
 <div class="employeeSearch">
 	<form method="get" class="searchForm">
 		<input type="text" name="findEmployee" placeholder="Find by name/user" value="${searchString}">
