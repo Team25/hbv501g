@@ -78,7 +78,7 @@ public class ClockController {
     	}
 
     	if (currentEmployee.getIsAdmin()) 
-    		model.addAttribute("adminToolbar", "<a href='employee/view/all'><div>Employee list</div></a>");
+    		model.addAttribute("adminToolbar", "true");
     	
         return "clock";
     }
@@ -125,7 +125,7 @@ public class ClockController {
     	}
 
     	if (currentEmployee.getIsAdmin()) 
-    		model.addAttribute("adminToolbar", "<a href='employee/view/all'><div>Employee List</div></a>");
+    		model.addAttribute("adminToolbar", "true");
 
     	return "clock";
     }
