@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of employees</title>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/entryAdmin.css"/>"/>
 </head>
 <body>
 <div class="container">
@@ -28,7 +29,7 @@
                 <td><sf:input path="outTime" type="text" value="${entry.outTime }"/></td>
             </tr>
             <tr>
-                <td>In Time:</td>
+                <td>Department:</td>
                     <%--the `path` attribute matches the `text` attribute of the Entity that was passed in the model--%>
                 <td><sf:input path="department" type="text" value="${entry.department }"/></td>
             </tr>
@@ -44,6 +45,7 @@
     <div class="message_container">
     	<p>${updateMessage}</p>
     </div>
+    <hr class="great-divide">
 	<div class="comment_container">
 		<c:forEach var="listValue" items="${entry.comments}">
 		<div class="comment">
@@ -51,6 +53,7 @@
 			<h4><i>${listValue.timestamp}</i></h4>
 			<p>${listValue.text}</p>
 		</div>
+		<hr>
 		</c:forEach>
 	</div>
 	<sf:form method="POST" commandName="comment" action="/entry/view/all/${entry.id}/comment">
@@ -69,9 +72,9 @@
 	${commentMessage}
 </div>
 <div class="navbar">
-<a href="/entry/view/all">back to your entries view</a>
+<a href="/entry/view/all"><button>back to your entries view</button></a>
 
-<a href="/clock">Return to clock page</a>
+<a href="/clock"><button>Return to clock page</button></a>
 
 </div>
 </div>

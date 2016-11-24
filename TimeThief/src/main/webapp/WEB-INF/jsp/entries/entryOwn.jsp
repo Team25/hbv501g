@@ -53,10 +53,9 @@
 			${commentMessage}
 		</div>
 		<div class="navbar">
-		<a href="/entry/view/own"><button>back to your entries view</button></a>
-		
-		<a href="/clock"><button>Return to clock page</button></a>
-		
+			<a href="/entry/view/own"><button>back to your entries view</button></a>
+			
+			<a href="/clock"><button>Return to clock page</button></a>		
 		</div>
 	</div>
 </body>
