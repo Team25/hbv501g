@@ -35,7 +35,14 @@
             </tr>
             <tr>
 				<td><label>Check to verify:</label></td>
-				<td><sf:checkbox path="isVerified" id="is_verified" checked="${entry.isVerified }" class="form-control"/></td>
+				<c:choose>
+	    			<c:when test="${entry.isVerified==true}">
+	        			<td><sf:checkbox path="isVerified" id="is_verified" checked="true" class="form-control"/></td>
+				    </c:when>    
+				    <c:otherwise>
+				        <td><sf:checkbox path="isVerified" id="is_verified" class="form-control"/></td>
+				    </c:otherwise>
+				</c:choose>
 			</tr>
         </table>
 

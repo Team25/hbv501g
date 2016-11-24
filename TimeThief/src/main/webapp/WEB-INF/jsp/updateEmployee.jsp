@@ -77,7 +77,14 @@
 				<tr>
 					<div class="form-group">
 						<td><label>Admin privileges:</label></td>
-						<td><sf:checkbox path="isAdmin" id="is_admin" checked="${employeeToUpdate.isAdmin }" class="form-control"/></td>
+						<c:choose>
+			    			<c:when test="${employeeToUpdate.isAdmin==true}">
+			        			<td><sf:checkbox path="isAdmin" id="is_admin" checked="true" class="form-control"/></td>
+						    </c:when>    
+						    <c:otherwise>
+						        <td><sf:checkbox path="isAdmin" id="is_admin" class="form-control"/></td>
+						    </c:otherwise>
+						</c:choose>
 					</div>
 			</table>	
 					<button id="createButton" class="form-control">Update</button>
