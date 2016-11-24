@@ -28,7 +28,17 @@ public class ClockController {
         this.employeeService = employeeService;
         this.entryService = entryService;
     }
-
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+    public String defaultPage(HttpSession session){
+    	
+    	// Check if user is signed in:
+    	Long userId = (Long)session.getAttribute("loggedInUser");
+    	if(userId==null)
+    		return "redirect:/login";
+    	return "redirect:/clock";
+    }
+    
     // Request mapping is the path that you want to map this method to
     // In this case, the mapping is the root "/", so when the project
     // is running and you enter "localhost:8080/login" into a browser, this
