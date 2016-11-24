@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container">
+<%@ include file="toolbars.jsp" %>
 <div class="employee_information">
 <ul>
 	<li>Full name: ${employee.fullName}</li>

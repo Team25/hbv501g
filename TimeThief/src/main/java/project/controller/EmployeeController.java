@@ -59,6 +59,7 @@ public class EmployeeController {
         		employeeList = employeeService.findAll();
         	}
     		model.addAttribute("employeeList", employeeList);
+    		model.addAttribute("adminToolbar", "true");
     	}
     	else {
     		// placeholder message till we figure out what to do
