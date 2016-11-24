@@ -202,7 +202,7 @@ public class EntryController {
 		}
 		entry.setComments(entryService.findOne(entry.getId()).getComments());
 		entry = entryService.save(entry);
-		return "redirect:/entry/view/all"+entryId;
+		return "redirect:/entry/view/all/"+entryId;
 
    	}
     
