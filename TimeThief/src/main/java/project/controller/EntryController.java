@@ -137,6 +137,9 @@ public class EntryController {
     	Entry currentEntry = entryService.findOne(entryId);
     	model.addAttribute("updatedEntry", new Entry());
 		model.addAttribute("entry", currentEntry);
+		//if(currentEntry.getIsVerified()){
+			//model.addAttribute("isChecked", "checked");
+		//}
 		Comment comment = new Comment();
 		model.addAttribute("comment", comment);
 		return "entries/entryAdmin";
@@ -202,7 +205,7 @@ public class EntryController {
 		}
 		entry.setComments(entryService.findOne(entry.getId()).getComments());
 		entry = entryService.save(entry);
-		return "redirect:/entry/view/all/"+entryId;
+		return "redirect:/entry/view/all";
 
    	}
     
