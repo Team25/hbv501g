@@ -14,7 +14,7 @@
 	<form method="get">
 		<input type="text" name="findEmployee" placeholder="Find by name/user">
 		<input type="submit" value="Search">
-		<a href="employee/view/all"><button>Reset</button></a>
+		${resetButton}
 	</form>
 </div>
 <div class="employeelist">

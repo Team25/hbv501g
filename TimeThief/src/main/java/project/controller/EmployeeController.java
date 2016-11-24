@@ -39,11 +39,16 @@ public class EmployeeController {
         // If you change "Login" to something else, be sure you have a .jsp
         // file that has the same name
     	
+    	if(!searchString.equals("")){
+    		String buttonHtml = "<a href=\"/employee/view/all\"><button>Reset</button></a>";
+    		model.addAttribute("resetButton", buttonHtml);
+    	}
+    	
     	Long userId = (Long)session.getAttribute("loggedInUser");
     	if(userId==null)
     		return "redirect:/login";
     	Employee currentEmployee = employeeService.findOne(userId);
-
+    	
     	String fullName = currentEmployee.getFullName();
     	List<Employee> employeeList;
     	if (currentEmployee.getIsAdmin()) {
@@ -71,7 +76,7 @@ public class EmployeeController {
     	Employee selectedEmployee = employeeService.findOne(employeeId);
     	if (currentEmployee.getIsAdmin() || currentUserId == employeeId) {
     		model.addAttribute("employee", selectedEmployee);
-    		model.addAttribute("adminToolbar", "<a href='/employee/view/all'>Return to employee list</a>");    		
+    		model.addAttribute("adminToolbar", "<a href='/employee/view/all'><div>Return to employee list</div></a>");    		
     		return "employee";
     	}
     	
@@ -90,7 +95,7 @@ public class EmployeeController {
     		model.addAttribute("employee", new Employee());
     		model.addAttribute("employeeToUpdate", selectedEmployee);
     		model.addAttribute("employeeId", selectedEmployee.getId().toString());
-    		model.addAttribute("adminToolbar", "<a href='/employee/view/all'>Return to employee list</a>");
+    		model.addAttribute("adminToolbar", "<a href='/employee/view/all'><div>Return to employee list</div></a>");
     		return "updateEmployee";
     	} else if(userId == employeeId){
     		model.addAttribute("employee", new Employee());
