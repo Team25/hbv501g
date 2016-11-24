@@ -78,12 +78,16 @@
 				</tr>
 				<tr>
 					<td><button id="createButton" class="form-control">Create</button></td>
-					<td></sf:form></td>
 				</tr>
 			</table>
 		<div class="message">
 		 	${createMessage}
 		 </div>
+		</sf:form>
+		<div class="navbar">
+			<a href="/employee/view/all"><button>Back to employees overview</button></a>
+			<a href="/clock"><button>Return to clock page</button></a>		
+		</div>
 	</div>
 </body>
 </html>

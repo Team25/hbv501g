@@ -19,6 +19,10 @@ h1 {
   color: #7fb3d5;
 }
 
-#createButton {
+.navbar {
+  margin-top: 20px;
+}
 
+button {
+  padding: 5px;
 }
