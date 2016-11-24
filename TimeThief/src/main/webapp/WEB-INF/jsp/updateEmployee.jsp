@@ -76,7 +76,7 @@
 				<tr>
 					<div class="form-group">
 						<td><label>Admin privileges:</label></td>
-						<td><sf:checkbox path="isAdmin" id="is_admin" value="${employeeToUpdate.isAdmin }" class="form-control"/></td>
+						<td><sf:checkbox path="isAdmin" id="is_admin" checked="${employeeToUpdate.isAdmin }" class="form-control"/></td>
 					</div>
 			</table>	
 					<button id="createButton" class="form-control">Update</button>
@@ -84,14 +84,11 @@
 				<div class="message">
 		 			${updateMessage}
 		 		</div>
-		<div class="navbar">
-			<div>
-			<a href="/clock" class="button">Return to clock page</a>
-			</div>	
-				<div class="admin-toolbar">
-					${adminToolbar}
+				<div>
+					<a href="/employee/view/${employeeToUpdate.id}">Return to employee</a>
 				</div>
-		</div>
+	
+		
 	</div>
 </body>
 </html>

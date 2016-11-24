@@ -26,12 +26,11 @@
 	<div>
 	<a href="/employee/update/${employee.id}">Update employee</a>
 	</div>
-	<div>
-	<a href="/clock">Return to clock page</a>
-	</div>
-	<div class="admin-toolbar">
-		${adminToolbar}
-	</div>
+	<c:if test="${not empty adminToolbar}">
+		<div>
+			<a href="/employee/view/all">Return to employee overview</a>
+		</div>
+	</c:if>
 </div>
 </div>
 </body>
