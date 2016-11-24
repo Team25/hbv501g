@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
+import java.sql.Timestamp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -89,6 +91,7 @@ public class EntryController {
     		comment.setEmployeeId(userId);
     		comment.setEntry(currentEntry);
     		comment.setEmployeeName(currentEmployee.getFullName());
+    		comment.setTimestamp(new Timestamp(System.currentTimeMillis()));
     		commentsOfCurrentEntry.add(commentsOfCurrentEntry.size(), comment);
     		currentEntry.setComments(commentsOfCurrentEntry);
     		currentEntry.setIsVerified(false);

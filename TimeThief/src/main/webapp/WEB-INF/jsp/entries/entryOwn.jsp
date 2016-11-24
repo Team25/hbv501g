@@ -29,6 +29,7 @@
 		<c:forEach var="listValue" items="${entry.comments}">
 		<div class="comment">
 			<h3>${listValue.employeeName}</h3>
+			<h4><i>${listValue.timestamp}</i></h4>
 			<p>${listValue.text}</p>
 		</div>
 		</c:forEach>

@@ -1,5 +1,7 @@
 package project.persistence.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class Comment {
 	private Long employeeId;
 	private String employeeName;
 	private String text;
+	private Timestamp timestamp;
 	
 	public Long getId() {
 		return id;
@@ -53,7 +56,12 @@ public class Comment {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	
 
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
 }
