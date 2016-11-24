@@ -16,7 +16,7 @@ body {
 
 h1 {
   color: #7fb3d5;
-} 
+}
 
 a, #createButton {
   font-size: 0.8rem;
@@ -27,4 +27,11 @@ a, #createButton {
   color: initial;
   margin:0 10px;
   padding: 10px;
+}
+
+.navbar {
+  margin:10vh auto;
+  display: inline-flex;
+  font-size: 1.2rem;
+  line-height: 1.8;
 }
