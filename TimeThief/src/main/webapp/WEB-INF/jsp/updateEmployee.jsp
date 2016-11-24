@@ -85,7 +85,9 @@
 		 			${updateMessage}
 		 		</div>
 		<div class="navbar">
+			<div>
 			<a href="/clock" class="button">Return to clock page</a>
+			</div>	
 				<div class="admin-toolbar">
 					${adminToolbar}
 				</div>
