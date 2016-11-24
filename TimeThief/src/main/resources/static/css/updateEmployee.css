@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+  background: linear-gradient(to right, #FFF , #AEAEAE);
+}
+.container {
+  margin:10vh auto;
+  max-width:90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-family: arial;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+h1 {
+  color: #7fb3d5;
+} 
+
+a, #createButton {
+  font-size: 0.8rem;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+  margin:0 10px;
+  padding: 10px;
+}
