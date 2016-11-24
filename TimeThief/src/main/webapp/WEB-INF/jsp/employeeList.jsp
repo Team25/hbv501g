@@ -11,11 +11,11 @@
 <body>
 <div class="container">
 <div class="employeeSearch">
-	<form method="get">
-		<input type="text" name="findEmployee" placeholder="Find by name/user">
+	<form method="get" class="searchForm">
+		<input type="text" name="findEmployee" placeholder="Find by name/user" value="${searchString}">
 		<input type="submit" value="Search">
-		${resetButton}
 	</form>
+	${resetButton}
 </div>
 <div class="employeelist">
 <table>
