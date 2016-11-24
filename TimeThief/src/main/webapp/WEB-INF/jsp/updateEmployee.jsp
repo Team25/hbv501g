@@ -87,14 +87,14 @@
 						</c:choose>
 					</div>
 			</table>	
-					<button id="createButton" class="form-control">Update</button>
-					</sf:form>
-				<div class="message">
-		 			${updateMessage}
-		 		</div>
-				<div>
-					<a href="/employee/view/${employeeToUpdate.id}">Return to employee</a>
-				</div>
+			<button id="createButton" class="form-control">Update</button>
+			</sf:form>
+		<div class="message">
+ 			${updateMessage}
+ 		</div>
+		<div>
+			<a href="/employee/view/${employeeToUpdate.id}">Return to employee</a>
+		</div>
 	
 		
 	</div>
