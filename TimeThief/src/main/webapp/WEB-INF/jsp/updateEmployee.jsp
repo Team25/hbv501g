@@ -78,25 +78,18 @@
 						<td><label>Admin privileges:</label></td>
 						<td><sf:checkbox path="isAdmin" id="is_admin" value="${employeeToUpdate.isAdmin }" class="form-control"/></td>
 					</div>
-				</tr>
-				<tr>
-					<td><button id="createButton" class="form-control">Update</button></td>
-					<td></sf:form></td>
-				</tr>
-				<tr>
+			</table>	
+					<button id="createButton" class="form-control">Update</button>
+					</sf:form>
 				<div class="message">
 		 			${updateMessage}
 		 		</div>
-				
 		<div class="navbar">
-			<td><a href="/clock" class="button">Return to clock page</a></td>
-				<td><div class="admin-toolbar">
+			<a href="/clock" class="button">Return to clock page</a>
+				<div class="admin-toolbar">
 					${adminToolbar}
-				</div></td>
+				</div>
 		</div>
-		</tr>
-		
-		</table>
 	</div>
 </body>
 </html>
