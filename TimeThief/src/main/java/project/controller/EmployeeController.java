@@ -130,6 +130,7 @@ public class EmployeeController {
     		
     		if(result.hasErrors()){
     			model.addAttribute("updateMessage", result.getFieldError().getField() + " contains some error");
+    			employee.setLoginPassword("");
     			return "updateEmployee";
     		}
     		else{
@@ -138,6 +139,7 @@ public class EmployeeController {
     				model.addAttribute("updateMessage", "Updating employee to DB failed.");
     			else
     				model.addAttribute("updateMessage", "Updating employee Successful.");
+    			employee.setLoginPassword("");
     			return "updateEmployee";
     		}
     	}
