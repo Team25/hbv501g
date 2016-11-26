@@ -15,7 +15,7 @@
 <div class="employeelist">
 <table>
 	<tr>
-		<th>Id</th>
+		<th>Link</th>
 		<th>In Time</th>
 		<th>Out Time</th>
 		<th>Department</th>
