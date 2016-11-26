@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import project.persistence.entities.Employee;
 import project.persistence.repositories.EmployeeRepository;
 import project.service.EmployeeService;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.xml.bind.DatatypeConverter;
 
 @Service
 public class EmployeeServiceImplementation implements EmployeeService {
@@ -20,6 +23,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	
 	@Override
 	public Employee save(Employee employee){
+		employee.setLoginPassword(hashPassword(employee.getLoginPassword()));
 		return repository.save(employee);
 	}
 	
@@ -60,11 +64,28 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		
 		if(!listWithEmployee.isEmpty()){
 			thisEmployee = listWithEmployee.get(0);
-		}
-		
-		if(thisEmployee != null && password.equals(thisEmployee.getLoginPassword())){
-			return thisEmployee;
+			
+			if(hashPassword(password).equals(thisEmployee.getLoginPassword())){
+				return thisEmployee;
+			}
 		}
 		return null;
+	}
+	
+	private String hashPassword(String password) {
+		String HashedString = "";
+		byte[] passwordBytes = password.getBytes();
+		
+		try {
+			MessageDigest hasher = MessageDigest.getInstance("SHA-224");
+			hasher.update(passwordBytes);
+			byte[] HashedBytes = hasher.digest();
+			HashedString = DatatypeConverter.printHexBinary(HashedBytes);
+		} catch (NoSuchAlgorithmException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return HashedString;
+		
 	}
 }
