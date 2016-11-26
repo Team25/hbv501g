@@ -23,7 +23,14 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	
 	@Override
 	public Employee save(Employee employee){
-		employee.setLoginPassword(hashPassword(employee.getLoginPassword()));
+		String hashedPassword = "";
+		if(employee.getLoginPassword().equals("")){
+			Employee tmp = repository.findOne(employee.getId());
+			hashedPassword = tmp.getLoginPassword();
+		} else {
+			hashedPassword = hashPassword(employee.getLoginPassword());
+		}
+		employee.setLoginPassword(hashedPassword);
 		return repository.save(employee);
 	}
 	

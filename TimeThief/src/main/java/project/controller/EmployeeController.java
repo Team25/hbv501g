@@ -133,9 +133,6 @@ public class EmployeeController {
     			return "updateEmployee";
     		}
     		else{
-    			if(employee.getLoginPassword().isEmpty()) {
-    				// Don't update the password!
-    			}
     			Employee newEmployee = employeeService.save(employee);
     			if(newEmployee==null)
     				model.addAttribute("updateMessage", "Updating employee to DB failed.");
