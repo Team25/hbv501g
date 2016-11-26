@@ -3,28 +3,51 @@ package project.persistence.entities;
 import java.util.Date;
 //import java.sql.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="employee")
 public class Employee {
+	@NotNull
+    @Size(min=1, max=16)
 	private String fullName;
 	
+	@NotNull
+    @Size(min=1, max=16)
 	@Column(unique = true)
 	private String loginName;
+	@NotNull
 	private String loginPassword;
 	
 	// Declare that this attribute is the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+    
+    @NotNull
+    @Size(min=1, max=16)
 	private String socialSecurity;
+    
+    @NotNull
+    @Size(min=1, max=16)
+    @Pattern(regexp ="\\d{3}-\\d{4}")
 	private String phoneNumber;
+    
+    @NotNull
+    @Size(min=1, max=16)
 	private String homeAddress;
+    
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfEmployment;
+	
 	private float hourlyRate;
+	
+	@NotNull
+    @Size(min=1, max=16)
 	private String defaultDepartment;
 	private boolean isAdmin;
 	
