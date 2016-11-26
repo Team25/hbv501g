@@ -4,6 +4,8 @@ import java.util.Date;
 //import java.sql.Date;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="employee")
 public class Employee {
@@ -20,6 +22,7 @@ public class Employee {
 	private String socialSecurity;
 	private String phoneNumber;
 	private String homeAddress;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfEmployment;
 	private float hourlyRate;
 	private String defaultDepartment;

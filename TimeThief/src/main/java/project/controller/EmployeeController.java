@@ -126,7 +126,6 @@ public class EmployeeController {
     	
     	if (currentEmployee.getIsAdmin() || employeeId.equals(userId)) {
     		if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
-    		model.addAttribute("employeeToUpdate", selectedEmployee);
     		
     		if(result.hasErrors()){
     			model.addAttribute("updateMessage", result.getFieldError().getField() + " contains some error");
@@ -159,7 +158,6 @@ public class EmployeeController {
     	
     	if (currentEmployee.getIsAdmin()) {
     		Employee formEmployee = new Employee();
-    		//formEmployee = employeeService.save(formEmployee);
     		model.addAttribute("employee", formEmployee);
     		model.addAttribute("adminToolbar", "true");
     		return "createEmployee";
@@ -192,7 +190,8 @@ public class EmployeeController {
     				model.addAttribute("createMessage", "Saving employee to DB failed.");
     			else
     				model.addAttribute("createMessage", "Creating employee Successful.");
-    			return "createEmployee";
+    			employee.setLoginPassword("");
+    			return "redirect:/employee/update/" + newEmployee.getId();
     		}
     	}
     	

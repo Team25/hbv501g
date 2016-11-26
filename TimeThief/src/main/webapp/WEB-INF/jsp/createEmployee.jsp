@@ -56,8 +56,8 @@
 				<tr>
 					<div class="form-group">
 						<td><label>Date of Employment:</label></td>
-						<td><fmt:formatDate value="${employee.dateOfEmployment}" var="dateString" pattern="dd/MM/yyyy" />
-						<sf:input path="dateOfEmployment" type="text" value = "${dateString}" id="first_day" name="first_day" placeholder="dd/mm/yyyy" class="form-control"/></td>
+						<td><fmt:formatDate value="${employee.dateOfEmployment}" var="dateString" pattern="yyyy-MM-dd" />
+						<sf:input path="dateOfEmployment" type="text" value = "${dateString}" id="first_day" name="first_day" placeholder="yyyy-MM-dd" class="form-control"/></td>
 					</div>
 				</tr>
 				<tr>
