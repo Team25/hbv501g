@@ -126,7 +126,7 @@ public class EmployeeController {
     	
     	if (currentEmployee.getIsAdmin() || employeeId.equals(userId)) {
     		if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
-    		
+    		model.addAttribute("employeeToUpdate", selectedEmployee);
     		if(result.hasErrors()){
     			model.addAttribute("updateMessage", result.getFieldError().getField() + " contains some error");
     			employee.setLoginPassword("");
