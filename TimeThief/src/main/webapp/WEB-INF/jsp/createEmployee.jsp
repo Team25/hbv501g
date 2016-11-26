@@ -8,9 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Create Employee</title>
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/createEmployee.css"/>"/> 
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/createEmployee.css"/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 </head>
 <body>
+	<%@ include file="toolbars.jsp" %>
 	<div class="container">
 		<sf:form action="/employee/create" method="POST" commandName="employee">
 			<h1>Create Employee</h1>
@@ -54,7 +56,7 @@
 				<tr>
 					<div class="form-group">
 						<td><label>Date of Employment:</label></td>
-						<td><fmt:formatDate value="${employee.dateOfEmployment}" var="dateString" pattern="dd/MM/yyyy" /> 
+						<td><fmt:formatDate value="${employee.dateOfEmployment}" var="dateString" pattern="dd/MM/yyyy" />
 						<sf:input path="dateOfEmployment" type="text" value = "${dateString}" id="first_day" name="first_day" placeholder="dd/mm/yyyy" class="form-control"/></td>
 					</div>
 				</tr>
@@ -85,8 +87,7 @@
 		 </div>
 		</sf:form>
 		<div class="navbar">
-			<a href="/employee/view/all"><button>Back to employees overview</button></a>
-			<a href="/clock"><button>Return to clock page</button></a>		
+			<a href="/employee/view/all"><button>Back to employee list</button></a>
 		</div>
 	</div>
 </body>

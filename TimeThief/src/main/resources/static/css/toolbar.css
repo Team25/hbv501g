@@ -1,0 +1,38 @@
+
+.toolbar {
+  background-color: #283747;
+
+	color: white;
+	padding:10px 30px;;
+	border-bottom:5px ridge #7fb3d5;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 3px 3px 7px rgba(0,0,0,0.5);
+}
+
+.toolbar a {
+	text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+	color: black;
+	font-weight: bold;
+	font-size:18px;
+}
+
+.toolbar a > div {
+	background-color:#7fb3d5;
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	transition:0.3s;
+}
+
+.toolbar a > div:hover {
+	background-color: #fff;
+	color:black;
+}
+
+.toolbar .user-toolbar {
+  margin-left: auto;
+}

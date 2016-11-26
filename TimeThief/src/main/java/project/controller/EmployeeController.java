@@ -122,13 +122,20 @@ public class EmployeeController {
     		return "redirect:/login";
 	
     	Employee currentEmployee = employeeService.findOne(userId);
-	
+    	Employee selectedEmployee = employeeService.findOne(employeeId);
+    	
     	if (currentEmployee.getIsAdmin() || employeeId.equals(userId)) {
+    		if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
+    		model.addAttribute("employeeToUpdate", selectedEmployee);
+    		
     		if(result.hasErrors()){
     			model.addAttribute("updateMessage", result.getFieldError().getField() + " contains some error");
     			return "updateEmployee";
     		}
     		else{
+    			if(employee.getLoginPassword().isEmpty()) {
+    				// Don't update the password!
+    			}
     			Employee newEmployee = employeeService.save(employee);
     			if(newEmployee==null)
     				model.addAttribute("updateMessage", "Updating employee to DB failed.");
@@ -155,6 +162,7 @@ public class EmployeeController {
     		Employee formEmployee = new Employee();
     		//formEmployee = employeeService.save(formEmployee);
     		model.addAttribute("employee", formEmployee);
+    		model.addAttribute("adminToolbar", "true");
     		return "createEmployee";
     	}
     	
@@ -174,6 +182,7 @@ public class EmployeeController {
     	Employee currentEmployee = employeeService.findOne(userId);
     	
     	if (currentEmployee.getIsAdmin()) {
+    		model.addAttribute("adminToolbar", "true");
     		if(result.hasErrors()){
     			model.addAttribute("createMessage", result.getFieldError().getField() + " contains some error");
     			return "createEmployee";

@@ -7,8 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of employees</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/entryOwn.css"/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 </head>
 <body>
+		<%@ include file="../toolbars.jsp" %>
 	<div class="container">
 	  <h1>Entry overview</h1>
 		<div class="entry">
@@ -20,7 +22,7 @@
 					<c:choose>
 		    			<c:when test="${entry.isVerified==true}">
 		        			<strong>Status:</strong> verified
-					    </c:when>    
+					    </c:when>
 					    <c:otherwise>
 					        <strong>Status:</strong> not verified
 					    </c:otherwise>
@@ -39,7 +41,7 @@
 				</c:forEach>
 			</div>
 			<sf:form method="POST" commandName="comment" action="/entry/view/own/${entry.id}">
-		
+
 		        <table>
 		            <tr>
 		                <%--the `path` attribute matches the `text` attribute of the Entity that was passed in the model--%>
@@ -47,17 +49,14 @@
 		                <td><input type="submit" VALUE="Comment!"/></td>
 		            </tr>
 		        </table>
-		        
-		
+
+
 		    </sf:form>
 			${commentMessage}
 		</div>
 		<div class="navbar">
-			<a href="/entry/view/own"><button>back to your entries view</button></a>
-			
-			<a href="/clock"><button>Return to clock page</button></a>		
+			<a href="/entry/view/own"><button>back to your entries</button></a>
 		</div>
 	</div>
 </body>
 </html>
-

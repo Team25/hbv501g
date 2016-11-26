@@ -46,8 +46,11 @@ public class EntryController {
     	if(userId==null)
     		return "redirect:/login";
     	
+    	Employee currentEmployee = employeeService.findOne(userId);
     	List<Entry> entries = entryService.findByEmployeeId(userId);
+    	
     	model.addAttribute("entryList", entries);
+    	if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
     	
     	return "entries/entryList";
     }
@@ -59,11 +62,13 @@ public class EntryController {
     	if(userId==null)
     		return "redirect:/login";
     	
+    	Employee currentEmployee = employeeService.findOne(userId);
     	Entry currentEntry = entryService.findOne(entryId);
     	if(currentEntry.getEmployeeId().equals(userId)){
     		model.addAttribute("entry", currentEntry);
     		Comment comment = new Comment();
     		model.addAttribute("comment", comment);
+    		if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
     		return "entries/entryOwn";
     	}
        	return "unauthorized";
@@ -98,6 +103,7 @@ public class EntryController {
     		currentEntry = entryService.save(currentEntry);
     		model.addAttribute("entry", currentEntry);
     		model.addAttribute("comment", new Comment());
+    		if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
     		return "entries/entryOwn";
     	}
     	
@@ -118,7 +124,7 @@ public class EntryController {
     	
     	List<Entry> entries = entryService.findAll();
     	model.addAttribute("entryList", entries);
-    	
+    	if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
     	return "entries/allEntryList";
     }
     
@@ -142,6 +148,7 @@ public class EntryController {
 		//}
 		Comment comment = new Comment();
 		model.addAttribute("comment", comment);
+		model.addAttribute("adminToolbar", "true");
 		return "entries/entryAdmin";
     }
     
@@ -178,6 +185,7 @@ public class EntryController {
 		model.addAttribute("entry", currentEntry);
 		model.addAttribute("comment", new Comment());
 		model.addAttribute("updatedEntry", new Entry());
+		model.addAttribute("adminToolbar", "true");
 		return "entries/entryAdmin";
    	}
     
@@ -196,7 +204,7 @@ public class EntryController {
     	if(!currentEmployee.getIsAdmin()){
     		return "unauthorized";
     	}    	
-    	
+    	model.addAttribute("adminToolbar", "true");
 		if(result.hasErrors()){
 			model.addAttribute("updateMessage", result.getFieldError().getField() + " contains some error");
 			model.addAttribute("comment", new Comment());

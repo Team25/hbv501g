@@ -7,8 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of employees</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/allEntryList.css"/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 </head>
 <body>
+		<%@ include file="../toolbars.jsp" %>
 <div class="container">
 <div class="employeelist">
 <table>
@@ -29,9 +31,9 @@
 			<c:choose>
     			<c:when test="${listValue.isVerified==true}">
         			Yes
-			    </c:when>    
+			    </c:when>
 			    <c:otherwise>
-			        No 
+			        No
 			    </c:otherwise>
 			</c:choose>
 		</td>
@@ -39,10 +41,6 @@
 	</c:forEach>
 </table>
 </div>
-<div class="navbar">
-<a href="/clock">Return to clock page</a>
-</div>
 </div>
 </body>
 </html>
-

@@ -29,7 +29,7 @@ th, td {
 	padding: 3px 12px;
 }
 
-a {
+.container a {
   font-size: 0.8rem;
   -webkit-appearance: button;
   -moz-appearance: button;

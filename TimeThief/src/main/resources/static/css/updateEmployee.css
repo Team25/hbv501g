@@ -18,7 +18,7 @@ h1 {
   color: #7fb3d5;
 }
 
-a, #createButton {
+#go-back, #createButton {
   font-size: 0.8rem;
   -webkit-appearance: button;
   -moz-appearance: button;

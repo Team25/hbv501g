@@ -7,13 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/clock.css"/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 <title>Clock in/out</title>
 </head>
 <body>
-	<div class="background-container">		
+	<div class="background-container">
 
 <%@ include file="toolbars.jsp" %>
-	
+
 		<div class="container">
 			<h1>${user}</h1>
 			<div class="status-box">

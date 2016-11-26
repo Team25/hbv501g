@@ -7,8 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of employees</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/employeeList.css"/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 </head>
 <body>
+<%@ include file="toolbars.jsp" %>
 <div class="container">
 <div class="employeeSearch">
 	<form method="get" class="searchForm">
@@ -41,7 +43,6 @@
 </div>
 <div class="navbar">
 <a href="/employee/create" class="button">Create new employee</a>
-<a href="/clock" class="button">Return to clock page</a>
 </div>
 </div>
 </body>

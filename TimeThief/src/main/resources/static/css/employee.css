@@ -25,7 +25,7 @@ li{
   justify-content: space-between;
 }
 
-a {
+.container a {
   font-size: 0.8rem;
   -webkit-appearance: button;
   -moz-appearance: button;

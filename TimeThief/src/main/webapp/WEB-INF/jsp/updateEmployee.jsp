@@ -8,13 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Update Employee</title>
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/updateEmployee.css"/>"/> 
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/updateEmployee.css"/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 </head>
 <body>
+	<%@ include file="toolbars.jsp" %>
 	<div class="container">
-<%@ include file="toolbars.jsp" %>
 		<sf:form action="/employee/update/${employeeId }" method="POST" commandName="employee">
-			<h1>Update employee: ${employeeToUpdate.fullName}</h1>				
+			<h1>Update employee: ${employeeToUpdate.fullName}</h1>
 			<div class="form-group">
 				<sf:input path="id" type="hidden" id="id" name="id" value="${employeeToUpdate.id }" class="form-control"/>
 			</div>
@@ -34,7 +35,7 @@
 				<tr>
 					<div class="form-group">
 						<td><label for="password">Password:</label></td>
-						<td><sf:input path="loginPassword" type="password" id="password" name="password" value="${employeeToUpdate.loginPassword }" class="form-control"/></td>
+						<td><sf:input path="loginPassword" type="password" id="password" name="password" value="" class="form-control"/></td>
 					</div>
 				</tr>
 				<tr>
@@ -58,7 +59,7 @@
 				<tr>
 					<div class="form-group">
 						<td><label>Date of Employment:</label></td>
-						<td><fmt:formatDate value="${employeeToUpdate.dateOfEmployment}" var="dateString" pattern="dd/MM/yyyy" /> 	 
+						<td><fmt:formatDate value="${employeeToUpdate.dateOfEmployment}" var="dateString" pattern="dd/MM/yyyy" />
 						<sf:input path="dateOfEmployment" type="text" id="first_day" name="first_day" value="${employeeToUpdate.dateOfEmployment }" class="form-control"/></td>
 					</div>
 				</tr>
@@ -80,23 +81,23 @@
 						<c:choose>
 			    			<c:when test="${employeeToUpdate.isAdmin==true}">
 			        			<td><sf:checkbox path="isAdmin" id="is_admin" checked="true" class="form-control"/></td>
-						    </c:when>    
+						    </c:when>
 						    <c:otherwise>
 						        <td><sf:checkbox path="isAdmin" id="is_admin" class="form-control"/></td>
 						    </c:otherwise>
 						</c:choose>
 					</div>
-			</table>	
+			</table>
 			<button id="createButton" class="form-control">Update</button>
 			</sf:form>
 		<div class="message">
  			${updateMessage}
  		</div>
 		<div>
-			<a href="/employee/view/${employeeToUpdate.id}">Return to employee</a>
+			<a href="/employee/view/${employeeToUpdate.id}" id="go-back">Return to employee</a>
 		</div>
-	
-		
+
+
 	</div>
 </body>
 </html>
