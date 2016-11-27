@@ -36,7 +36,12 @@
 		<td>${listValue.socialSecurity}</td>
 		<td>${listValue.phoneNumber}</td>
 		<td>${listValue.defaultDepartment}</td>
-		<td>${listValue.isAdmin}</td>
+		<td>
+			<c:choose>
+	    		<c:when test="${listValue.isAdmin==true}">Yes</c:when>
+				<c:otherwise>No</c:otherwise>
+			</c:choose>
+		</td>
 	</tr>
 	</c:forEach>
 </table>
