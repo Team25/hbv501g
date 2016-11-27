@@ -13,11 +13,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="employee")
 public class Employee {
 	@NotNull
-    @Size(min=1, max=16)
+    @Size(min=1, max=64)
 	private String fullName;
 	
 	@NotNull
-    @Size(min=1, max=16)
+    @Size(min=1, max=64)
 	@Column(unique = true)
 	private String loginName;
 	@NotNull
@@ -29,16 +29,15 @@ public class Employee {
 	private Long id;
     
     @NotNull
-    @Size(min=1, max=16)
+    @Size(min=1, max=11)
 	private String socialSecurity;
     
     @NotNull
-    @Size(min=1, max=16)
     @Pattern(regexp ="\\d{3}-\\d{4}")
 	private String phoneNumber;
     
     @NotNull
-    @Size(min=1, max=16)
+    @Size(min=1, max=64)
 	private String homeAddress;
     
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -47,7 +46,7 @@ public class Employee {
 	private float hourlyRate;
 	
 	@NotNull
-    @Size(min=1, max=16)
+    @Size(min=1, max=64)
 	private String defaultDepartment;
 	private boolean isAdmin;
 	
