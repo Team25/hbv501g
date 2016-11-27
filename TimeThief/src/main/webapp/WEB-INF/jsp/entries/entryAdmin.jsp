@@ -22,17 +22,14 @@
         <table>
             <tr>
                 <td>In Time:</td>
-                    <%--the `path` attribute matches the `text` attribute of the Entity that was passed in the model--%>
                 <td><sf:input path="inTime" type="text" value="${entry.inTime }"/></td>
             </tr>
             <tr>
                 <td>Out Time:</td>
-                    <%--the `path` attribute matches the `text` attribute of the Entity that was passed in the model--%>
                 <td><sf:input path="outTime" type="text" value="${entry.outTime }"/></td>
             </tr>
             <tr>
                 <td>Department:</td>
-                    <%--the `path` attribute matches the `text` attribute of the Entity that was passed in the model--%>
                 <td><sf:input path="department" type="text" value="${entry.department }"/></td>
             </tr>
             <tr>

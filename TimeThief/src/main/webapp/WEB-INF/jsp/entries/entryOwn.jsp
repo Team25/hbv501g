@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,8 +16,8 @@
 	  <h1>Entry overview</h1>
 		<div class="entry">
 			<ul>
-				<li><strong>In Time:</strong> ${entry.inTime}</li>
-				<li><strong>Out Time:</strong> ${entry.outTime}</li>
+				<li><strong>In Time:</strong><fmt:formatDate value="${entry.inTime}" pattern="yyyy-MM-dd HH:mm"/></li>
+				<li><strong>Out Time:</strong><fmt:formatDate value="${entry.outTime}" pattern="yyyy-MM-dd HH:mm"/></li>
 				<li><strong>Department:</strong> ${entry.department}</li>
 				<li>
 					<c:choose>

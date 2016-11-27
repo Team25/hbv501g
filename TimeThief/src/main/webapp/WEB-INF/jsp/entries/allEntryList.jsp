@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,8 +24,12 @@
 	<c:forEach var="listValue" items="${entryList}">
 	<tr>
 		<td><a href="all/${listValue.id}">View Entry</a></td>
-		<td>${listValue.inTime}</td>
-		<td>${listValue.outTime}</td>
+		<td>
+			<fmt:formatDate value="${listValue.inTime}" pattern="yyyy-MM-dd HH:mm"/>
+		</td>
+		<td>
+			<fmt:formatDate value="${listValue.outTime}" pattern="yyyy-MM-dd HH:mm"/>
+		</td>
 		<td>${listValue.department}</td>
 		<td>
 			<c:choose>
