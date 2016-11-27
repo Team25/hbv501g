@@ -22,7 +22,6 @@ public class ClockController {
     EntryService entryService;
 
     // Dependency Injection
-    
 	@Autowired
     public ClockController(EmployeeService employeeService, EntryService entryService) {
         this.employeeService = employeeService;
@@ -39,10 +38,6 @@ public class ClockController {
     	return "redirect:/clock";
     }
     
-    // Request mapping is the path that you want to map this method to
-    // In this case, the mapping is the root "/", so when the project
-    // is running and you enter "localhost:8080/login" into a browser, this
-    // method is called
     @RequestMapping(value = "/clock", method = RequestMethod.GET)
     public String loginPage(HttpSession session, Model model){
     	

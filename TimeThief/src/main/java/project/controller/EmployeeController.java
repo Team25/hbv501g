@@ -34,10 +34,6 @@ public class EmployeeController {
     
     @RequestMapping(value = "/employee/view/all", method = RequestMethod.GET)
     public String viewAllEmployees(HttpSession session, Model model, @RequestParam(value="findEmployee", required=false, defaultValue="") String searchString) {
-        // The string "Login" that is returned here is the name of the view
-        // (the Login.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
-        // If you change "Login" to something else, be sure you have a .jsp
-        // file that has the same name
     	
     	if(!searchString.isEmpty()){
     		String buttonHtml = "<a href=\"/employee/view/all\"><button>Reset</button></a>";
