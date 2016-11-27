@@ -3,5 +3,4 @@
 .recommenders
 .recommenders/*
 *.swp
-application.properties
 *META-INF*
