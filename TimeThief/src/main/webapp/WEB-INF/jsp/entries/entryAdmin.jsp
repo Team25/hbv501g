@@ -25,7 +25,7 @@
             <tr>
                 <td>Employee:</td>
                 <td>
-                    ${entry.employeeId}
+                    ${employeeName}
                 </td>
             </tr>
             <tr>

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import java.util.List;
+import java.util.HashMap;
 
 import java.sql.Timestamp;
 
@@ -118,7 +119,14 @@ public class EntryController {
     	if(!currentEmployee.getIsAdmin()){
     		return "unauthorized";
     	}
+
+    	// Populate hashmap for jsp
+    	List<Employee> employees = employeeService.findAll();
+		HashMap<Long, String> hmap = new HashMap<Long, String>();
+		for (Employee emp : employees)
+			hmap.put(emp.getId(), emp.getLoginName());
     	
+    	model.addAttribute("employees", hmap);
     	List<Entry> entries = entryService.findAll();
     	model.addAttribute("entryList", entries);
     	if(currentEmployee.getIsAdmin()) model.addAttribute("adminToolbar", "true");
@@ -138,6 +146,8 @@ public class EntryController {
     	}
     	
     	Entry currentEntry = entryService.findOne(entryId);
+    	Employee employee = employeeService.findOne(currentEntry.getEmployeeId());
+    	model.addAttribute("employeeName", employee.getFullName());
     	model.addAttribute("updatedEntry", new Entry());
 		model.addAttribute("entry", currentEntry);
 		//if(currentEntry.getIsVerified()){

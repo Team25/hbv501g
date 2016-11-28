@@ -25,7 +25,7 @@
 	<c:forEach var="listValue" items="${entryList}">
 	<tr>
 		<td><a href="all/${listValue.id}">View Entry</a></td>
-		<td>${listValue.employeeId}</td>
+		<td><c:out value="${employees[listValue.employeeId]}"/></td>
 		<td>
 			<fmt:formatDate value="${listValue.inTime}" pattern="yyyy-MM-dd HH:mm"/>
 		</td>
