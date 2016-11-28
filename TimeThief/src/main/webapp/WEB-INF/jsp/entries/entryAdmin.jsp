@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>List of employees</title>
+<title>List of entries</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/entryAdmin.css"/>"/>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/toolbar.css"/>"/>
 </head>
@@ -22,6 +22,12 @@
 			<sf:input path="employeeId" type="hidden" id="id" name="id" value="${entry.employeeId }" class="form-control"/>
 		</div>
         <table>
+            <tr>
+                <td>Employee:</td>
+                <td>
+                    ${entry.employeeId}
+                </td>
+            </tr>
             <tr>
                 <td>In Time:</td>
                 <td>
