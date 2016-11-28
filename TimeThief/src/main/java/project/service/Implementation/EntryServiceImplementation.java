@@ -1,6 +1,6 @@
 package project.service.Implementation;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -98,7 +98,7 @@ public class EntryServiceImplementation implements EntryService {
 		Entry entry = new Entry();
 		entry.setDepartment(department);
 		entry.setEmployeeId(employeeId);
-		entry.setInTime(new Timestamp(System.currentTimeMillis()));
+		entry.setInTime(new Date());
 		entry.setIsVerified(false);
 		return entryRepository.save(entry);		
 	}
@@ -109,7 +109,7 @@ public class EntryServiceImplementation implements EntryService {
 	public Entry clockOut(Long employeeId){
 		// should always return entry.
 		Entry entry = isEmployeeClockedIn(employeeId);
-		entry.setOutTime(new Timestamp(System.currentTimeMillis()));
+		entry.setOutTime(new Date());
 		return entryRepository.save(entry);
 	}
 }

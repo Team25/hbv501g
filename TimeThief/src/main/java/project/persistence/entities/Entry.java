@@ -1,9 +1,11 @@
 package project.persistence.entities;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "entry")
@@ -20,8 +22,10 @@ public class Entry {
 			orphanRemoval = true)
 	private List<Comment> comments;
 	private String department;
-	private Timestamp inTime;
-	private Timestamp outTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+	private Date inTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+	private Date outTime;
 	private boolean isVerified;
 	
 	public Long getId() {
@@ -51,16 +55,16 @@ public class Entry {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public Timestamp getInTime() {
+	public Date getInTime() {
 		return inTime;
 	}
-	public void setInTime(Timestamp inTime) {
+	public void setInTime(Date inTime) {
 		this.inTime = inTime;
 	}
-	public Timestamp getOutTime() {
+	public Date getOutTime() {
 		return outTime;
 	}
-	public void setOutTime(Timestamp outTime) {
+	public void setOutTime(Date outTime) {
 		this.outTime = outTime;
 	}
 	public boolean getIsVerified() {

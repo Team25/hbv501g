@@ -4,8 +4,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.ListIterator;
 
 import java.sql.Timestamp;
 
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Comment;
 import project.persistence.entities.Employee;
