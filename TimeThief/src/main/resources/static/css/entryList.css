@@ -26,7 +26,7 @@ th {
 th, td {
   text-align: left;
   border-bottom: 1px solid #7fb3d5;
-	padding: 3px 12px;
+  padding: 3px 12px;
 }
 
 .button {
@@ -34,14 +34,12 @@ th, td {
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
-  text-decoration: none;
-  color: initial;
   margin:0 10px;
   padding: 10px;
 }
 
-.button a {
-  color: black;
+a {
+  color: initial;
   text-decoration: none;
 }
 
