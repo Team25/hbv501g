@@ -101,11 +101,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	
 	private String hashString(String str) {
 		String HashedString = "";
-		byte[] passwordBytes = str.getBytes();
+		byte[] strBytes = str.getBytes();
 		
 		try {
 			MessageDigest hasher = MessageDigest.getInstance("SHA-224");
-			hasher.update(passwordBytes);
+			hasher.update(strBytes);
 			byte[] HashedBytes = hasher.digest();
 			HashedString = DatatypeConverter.printHexBinary(HashedBytes);
 		} catch (NoSuchAlgorithmException e) {
