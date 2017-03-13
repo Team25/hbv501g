@@ -28,4 +28,10 @@ public interface EmployeeService {
 	Employee findOne(Long id);
 	
 	Employee verifyLogin(String user, String password);
+	
+	Employee findByToken(String token); // not in uml
+	
+	boolean isValidToken(String token);
+	
+	String createToken(String user, String password); // not in uml
 }

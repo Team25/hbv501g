@@ -50,6 +50,9 @@ public class Employee {
 	private String defaultDepartment;
 	private boolean isAdmin;
 	
+	@Column(unique = true)
+	private String token;
+	
 	public Employee(){	
 	}
 	
@@ -63,7 +66,8 @@ public class Employee {
 					Date dateOfEmployment,
 					float hourlyRate,
 					String defaultDepartment,
-					boolean isAdmin){
+					boolean isAdmin,
+					String token){
 		this.fullName = fullName;
 		this.loginName = loginName;
 		this.loginPassword = loginPassword;
@@ -75,6 +79,7 @@ public class Employee {
 		this.hourlyRate = hourlyRate;
 		this.defaultDepartment = defaultDepartment;
 		this.isAdmin = isAdmin;
+		this.token = token;
 	}
 	
 	public String getFullName() {
@@ -142,5 +147,11 @@ public class Employee {
 	}
 	public boolean getIsAdmin() {
 		return isAdmin;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getToken() {
+		return token;
 	}
 }

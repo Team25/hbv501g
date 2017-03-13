@@ -21,5 +21,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     List<Employee> findByLoginNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(String loginName, String fullName);
     
     Employee findOne(Long id);
-	
+    
+    List<Employee> findByToken(String token); // not in uml
+    
 }

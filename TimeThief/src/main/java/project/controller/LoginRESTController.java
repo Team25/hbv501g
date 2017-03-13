@@ -21,11 +21,15 @@ public class LoginRESTController {
     }
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/applogin")
-	public String login(@RequestParam(value="username") String userName, @RequestParam(value="password") String password) {
+	public String login(String userName, String password) {
 		Employee employee = employeeService.verifyLogin(userName, password);
-		if(employee == null){
-    		return "fail";
-    	}
-		return "success";
+		
+		if(employee == null) return null;
+		else return employeeService.createToken(userName, password);
+	}
+	
+	
+	public boolean isValidToken(String token) {
+		return employeeService.isValidToken(token);
 	}
 }

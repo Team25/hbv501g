@@ -7,7 +7,7 @@ VALUES('2016-11-01 00:00:00', 'Overlord', 'Matthias Book', 'Ljarskogar 9', 5000,
 INSERT INTO employee(date_of_employment, default_department, full_name, home_address, hourly_rate, is_admin ,login_name, login_password, phone_number, social_security) 
 VALUES('2016-11-01 00:00:00', 'Overlord', 'Petur', 'nálægt meistaravöllum 9', 500000, FALSE, 'petur', 'D3F202085C556919991A66E985347E5DFFEAD33C285137F0535F4FA4', '661-5216', '210588-2550');
 INSERT INTO employee(date_of_employment, default_department, full_name, home_address, hourly_rate, is_admin ,login_name, login_password, phone_number, social_security) 
-VALUES('2016-11-01 00:00:00', 'Overlord', 'Olafur Ingi Gudmundsson', 'Byggdarendi  9', 500000, TRUE, 'oig', '94BD64578DBE9C849BC1DB0E1A8DF315435EAB83BACB741833403531', '661-5216', '110489-2230');
+VALUES('2016-11-01 00:00:00', 'Overlord', 'Olafur Ingi Gudmundsson', 'Byggdarendi  9', 500000, TRUE, 'oig', '94BD64578DBE9C849BC1DB0E1A8DF315435EAB83BACB741833403531', '661-5216', '110489-2230', NULL);
 INSERT INTO employee(date_of_employment, default_department, full_name, home_address, hourly_rate, is_admin ,login_name, login_password, phone_number, social_security)
 VALUES('2016-11-26 00:00:00', 'Overlord', 'Jianfei', 'Haskoli Islands', 12000000, TRUE, 'jianfei', '7BA64DD39E755249451D3E297A551A8AFCCBD3709DDC4A280560D0F0', '111-1111', '210218-2309');
 INSERT INTO employee(date_of_employment, default_department, full_name, home_address, hourly_rate, is_admin ,login_name, login_password, phone_number, social_security)

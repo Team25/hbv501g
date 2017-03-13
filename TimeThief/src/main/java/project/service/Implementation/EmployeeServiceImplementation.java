@@ -1,6 +1,7 @@
 package project.service.Implementation;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 			Employee tmp = repository.findOne(employee.getId());
 			hashedPassword = tmp.getLoginPassword();
 		} else {
-			hashedPassword = hashPassword(employee.getLoginPassword());
+			hashedPassword = hashString(employee.getLoginPassword());
 		}
 		employee.setLoginPassword(hashedPassword);
 		return repository.save(employee);
@@ -72,16 +73,35 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		if(!listWithEmployee.isEmpty()){
 			thisEmployee = listWithEmployee.get(0);
 			
-			if(hashPassword(password).equals(thisEmployee.getLoginPassword())){
+			if(hashString(password).equals(thisEmployee.getLoginPassword())){
 				return thisEmployee;
 			}
 		}
 		return null;
 	}
 	
-	private String hashPassword(String password) {
+	@Override // not in uml
+	public Employee findByToken(String token) {
+		List<Employee> employees = repository.findByToken(token);
+		
+		if (employees == null || employees.isEmpty()) return null;
+		else return employees.get(0);
+	}
+	
+	
+	@Override
+	public boolean isValidToken(String token) {
+		List<Employee> employees = repository.findByToken(token);
+		
+		// Að því gefnu að við skoðum ekkert expiration, sem 
+		// gleymdist alveg að pæla í í uml.
+		if (employees == null || employees.isEmpty()) return false;
+		else return true;
+	}
+	
+	private String hashString(String str) {
 		String HashedString = "";
-		byte[] passwordBytes = password.getBytes();
+		byte[] passwordBytes = str.getBytes();
 		
 		try {
 			MessageDigest hasher = MessageDigest.getInstance("SHA-224");
@@ -92,7 +112,16 @@ public class EmployeeServiceImplementation implements EmployeeService {
 			System.out.println(e.getMessage());
 		}
 		
-		return HashedString;
+		return HashedString;	
+	}
+	
+	// not in uml
+	public String createToken(String user, String password) {
+		Random rand = new Random();
+		int randomNumber = rand.nextInt(100000);
 		
+		String token = hashString(user + password + randomNumber);
+		
+		return token;
 	}
 }
