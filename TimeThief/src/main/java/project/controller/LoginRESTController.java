@@ -25,7 +25,7 @@ public class LoginRESTController {
 		Employee employee = employeeService.verifyLogin(userName, password);
 		
 		if(employee == null) return null;
-		else return employeeService.createToken(userName, password);
+		else return employeeService.createToken(employee);
 	}
 	
 	

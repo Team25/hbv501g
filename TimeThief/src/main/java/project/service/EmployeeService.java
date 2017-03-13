@@ -33,5 +33,5 @@ public interface EmployeeService {
 	
 	boolean isValidToken(String token);
 	
-	String createToken(String user, String password); // not in uml
+	String createToken(Employee employee); // not in uml
 }

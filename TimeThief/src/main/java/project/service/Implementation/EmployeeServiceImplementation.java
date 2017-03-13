@@ -116,12 +116,20 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	}
 	
 	// not in uml
-	public String createToken(String user, String password) {
+	public String createToken(Employee employee) {
+		// Búum til token með því að hasha random streng.
 		Random rand = new Random();
 		int randomNumber = rand.nextInt(100000);
 		
-		String token = hashString(user + password + randomNumber);
+		String randomString = employee.getLoginName() + employee.getLoginPassword() + randomNumber;
 		
+		String token = hashString(randomString);
+		
+		// vistum token í grunn.
+		employee.setToken(token);
+		repository.save(employee);
+		
+		// skilum token til client.
 		return token;
 	}
 }
