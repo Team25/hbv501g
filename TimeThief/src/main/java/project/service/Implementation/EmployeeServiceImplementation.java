@@ -5,6 +5,8 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import client.shipping.TokenInfo;
 import project.persistence.entities.Employee;
 import project.persistence.repositories.EmployeeRepository;
 import project.service.EmployeeService;
@@ -88,15 +90,20 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		else return employees.get(0);
 	}
 	
-	
 	@Override
-	public boolean isValidToken(String token) {
+	public TokenInfo isValidToken(String token) {
 		List<Employee> employees = repository.findByToken(token);
 		
-		// Að því gefnu að við skoðum ekkert expiration, sem 
-		// gleymdist alveg að pæla í í uml.
-		if (employees == null || employees.isEmpty()) return false;
-		else return true;
+		TokenInfo tokenInfo = new TokenInfo();
+		if (employees == null || employees.isEmpty()) {
+			tokenInfo.setValidity(false);
+		}
+		else tokenInfo.setValidity(true);
+		
+		// Notum tokenInfo til að geta skilað objecti með boolean breytu
+		// í staðinn fyrir að breyta í streng eöa e.h. 
+		// Getum þá auðveldlega bætt við hlutum eins og expiration time.
+		return tokenInfo;
 	}
 	
 	private String hashString(String str) {

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import client.shipping.TokenInfo;
 import project.persistence.entities.Employee;
 import project.service.EmployeeService;
 import project.service.EntryService;
@@ -39,8 +40,11 @@ public class LoginRESTController {
 		return token;
 	}
 	
-	
-	public boolean isValidToken(String token) {
-		return employeeService.isValidToken(token);
+	@RequestMapping(method = RequestMethod.GET, value = "/apptoken", produces = "application/json")
+	public TokenInfo isValidToken(String token) {
+		
+		TokenInfo tokenInfo = employeeService.isValidToken(token);
+		
+		return tokenInfo;
 	}
 }
