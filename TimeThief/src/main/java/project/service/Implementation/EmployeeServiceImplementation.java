@@ -129,7 +129,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		employee.setToken(token);
 		repository.save(employee);
 		
-		// skilum token til client.
+		// skilum token til controller > client.
 		return token;
 	}
 }
