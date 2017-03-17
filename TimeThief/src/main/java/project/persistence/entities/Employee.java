@@ -56,10 +56,11 @@ public class Employee {
 	private String token;
 	
 	
-	@ManyToMany(mappedBy="members")
+	@ManyToMany(mappedBy="members", fetch = FetchType.LAZY)
 	private List<Conversation> conversations;
 	
-	@OneToMany(mappedBy="sender")
+	@OneToMany(mappedBy="sender",
+			fetch=FetchType.LAZY)
 	private List<Message> messages;
 	
 	
