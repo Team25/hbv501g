@@ -1,6 +1,8 @@
 package project.persistence.entities;
 
 import java.util.Date;
+import java.util.List;
+
 //import java.sql.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -53,34 +55,13 @@ public class Employee {
 	@Column(unique = true)
 	private String token;
 	
-	public Employee(){	
-	}
 	
-	public Employee(String fullName,
-					String loginName,
-					String loginPassword,
-					long id,
-					String socialSecurity,
-					String phoneNumber,
-					String homeAddress,
-					Date dateOfEmployment,
-					float hourlyRate,
-					String defaultDepartment,
-					boolean isAdmin,
-					String token){
-		this.fullName = fullName;
-		this.loginName = loginName;
-		this.loginPassword = loginPassword;
-		this.id = id;
-		this.socialSecurity = socialSecurity;
-		this.phoneNumber = phoneNumber;
-		this.homeAddress = homeAddress;
-		this.dateOfEmployment = dateOfEmployment;
-		this.hourlyRate = hourlyRate;
-		this.defaultDepartment = defaultDepartment;
-		this.isAdmin = isAdmin;
-		this.token = token;
-	}
+	@ManyToMany(mappedBy="members")
+	private List<Conversation> conversations;
+	
+	@OneToMany(mappedBy="sender")
+	private List<Message> messages;
+	
 	
 	public String getFullName() {
 		return fullName;
@@ -154,4 +135,20 @@ public class Employee {
 	public String getToken() {
 		return token;
 	}
+
+	
+	public List<Conversation> getConversations() {
+		return conversations;
+	}
+
+	public void setConversations(List<Conversation> conversations) {
+		this.conversations = conversations;
+	}
+	
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	
+	
 }
