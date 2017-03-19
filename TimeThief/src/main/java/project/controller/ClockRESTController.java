@@ -2,6 +2,9 @@ package project.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import client.shipping.EntryMobile;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,13 +44,15 @@ public class ClockRESTController {
 	}
 	
 	// til hvers var þessi gæji yfir höfuð ?
-	@RequestMapping(method = RequestMethod.GET, value = "/appentry")
-	public Entry getOpenClockEntry(String token) {
+	@RequestMapping(method = RequestMethod.GET, value = "/appentry", produces = "application/json")
+	public EntryMobile getOpenClockEntry(String token) {
 		Employee employee = employeeService.findByToken(token);
-		
-		if (employee == null) return null; // má þetta ? annars senda tómt entry til baka ?
-		
-		Entry entry = entryService.isEmployeeClockedIn(employee.getId());
-		return entry; // er null ef ekkert entry
+		if (employee == null) return null;
+		Entry entry = entryService.isEmployeeClockedIn(employee.getId());	
+		if(entry == null){
+			return null;
+		}
+		EntryMobile entryM = new EntryMobile(entry);
+		return entryM; // er null ef ekkert entry
 	}
 }
