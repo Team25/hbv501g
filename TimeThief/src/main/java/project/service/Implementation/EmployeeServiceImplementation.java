@@ -6,6 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import client.shipping.EmployeeMobile;
 import client.shipping.TokenInfo;
 import project.persistence.entities.Employee;
 import project.persistence.repositories.EmployeeRepository;
@@ -91,19 +92,17 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	}
 	
 	@Override
-	public TokenInfo isValidToken(String token) {
+	public EmployeeMobile isValidToken(String token) {
 		List<Employee> employees = repository.findByToken(token);
 		
-		TokenInfo tokenInfo = new TokenInfo();
-		if (employees == null || employees.isEmpty()) {
-			tokenInfo.setValidity(false);
-		}
-		else tokenInfo.setValidity(true);
+		if (employees == null || employees.isEmpty()) return null;
 		
-		// Notum tokenInfo til að geta skilað objecti með boolean breytu
-		// í staðinn fyrir að breyta í streng eöa e.h. 
-		// Getum þá auðveldlega bætt við hlutum eins og expiration time.
-		return tokenInfo;
+		Employee emp = employees.get(0);
+		
+		return new EmployeeMobile(emp.getFullName(),
+							 		emp.getId(),
+									emp.getPhoneNumber(),
+									emp.getToken());
 	}
 	
 	private String hashString(String str) {

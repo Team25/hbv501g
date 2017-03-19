@@ -2,6 +2,7 @@ package project.service;
 
 import java.util.List;
 
+import client.shipping.EmployeeMobile;
 import client.shipping.TokenInfo;
 import project.persistence.entities.Employee;
 
@@ -32,7 +33,7 @@ public interface EmployeeService {
 	
 	Employee findByToken(String token); // not in uml
 	
-	TokenInfo isValidToken(String token);
+	EmployeeMobile isValidToken(String token);
 	
 	String createToken(Employee employee); // not in uml
 }

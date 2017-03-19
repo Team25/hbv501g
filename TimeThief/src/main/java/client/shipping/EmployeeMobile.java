@@ -7,17 +7,14 @@ public class EmployeeMobile {
 	private Long id;    
 
 	private String phoneNumber;
-
-	private boolean clockedIn;
 	
 	private String token;
 
 	
-	public EmployeeMobile(String fullName, Long id, String phoneNumber, boolean clockedIn, String token) {
+	public EmployeeMobile(String fullName, Long id, String phoneNumber, String token) {
 		this.fullName = fullName;
 		this.id = id;
 		this.phoneNumber = phoneNumber;
-		this.clockedIn = clockedIn;
 		this.token = token;
 	}
 
@@ -43,14 +40,6 @@ public class EmployeeMobile {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public boolean isClockedIn() {
-		return clockedIn;
-	}
-
-	public void setClockedIn(boolean clockedIn) {
-		this.clockedIn = clockedIn;
 	}
 	
 	public String getToken() { return token; }

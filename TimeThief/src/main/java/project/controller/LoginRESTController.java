@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import client.shipping.EmployeeMobile;
 import client.shipping.TokenInfo;
 import project.persistence.entities.Employee;
 import project.service.EmployeeService;
@@ -27,24 +28,21 @@ public class LoginRESTController {
     }
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/applogin", produces = "application/json")
-	public String login(String userName, String password) {
+	public EmployeeMobile login(String userName, String password) {
 
-		System.out.println(userName + " :: " + password); 
 		Employee employee = employeeService.verifyLogin(userName, password);
 		
-		String token;
+		if(employee == null) return null;
 		
-		if(employee == null) token = null;
-		else token = employeeService.createToken(employee);
-		
-		return token;
+		return new EmployeeMobile(employee.getFullName(),
+									employee.getId(),
+									employee.getPhoneNumber(),
+									employee.getToken());
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/apptoken", produces = "application/json")
-	public TokenInfo isValidToken(String token) {
+	public EmployeeMobile isValidToken(String token) {
 		
-		TokenInfo tokenInfo = employeeService.isValidToken(token);
-		
-		return tokenInfo;
+		return employeeService.isValidToken(token);
 	}
 }
