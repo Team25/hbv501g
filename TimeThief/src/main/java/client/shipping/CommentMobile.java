@@ -1,5 +1,7 @@
 package client.shipping;
 
+import project.persistence.entities.Comment;
+
 public class CommentMobile {
 
     private long id;
@@ -12,6 +14,14 @@ public class CommentMobile {
 		this.entry = entry;
 		this.employee = employee;
 		this.text = text;
+	}
+	
+	public CommentMobile(Comment comment, EntryMobile entry) {
+		this.id = comment.getId();
+		this.entry = entry;
+		//TODO consider using fixing server side connection between comment and employee.
+		this.employee = null;
+		this.text = comment.getText();
 	}
 
 	public long getId() {
