@@ -26,8 +26,8 @@ public class ClockRESTController {
 		this.employeeService = employeeService; // not in uml
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/appclock")
-	public Entry clockInOut(String token, @RequestParam(required = false) String department) {
+	@RequestMapping(method = RequestMethod.GET, value = "/appclock")
+	public EntryMobile clockInOut(String token, @RequestParam(required = false) String department) {
 		Employee employee = employeeService.findByToken(token);
 		
 		if (employee == null) return null;
@@ -40,7 +40,7 @@ public class ClockRESTController {
 		}
 			
 		Entry entry = entryService.clock(employee.getId(), department);
-		return entry;
+		return new EntryMobile(entry);
 	}
 	
 	// til hvers var þessi gæji yfir höfuð ?
