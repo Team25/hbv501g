@@ -4,59 +4,59 @@ import java.sql.Timestamp;
 
 public class MessageMobile {
 	
-	private long id;
-	private ConversationMobile conversation;
-	private EmployeeMobile sender;
-	private Timestamp sentTime;
-	private String text;
+	private long mId;
+	private ConversationMobile mConversation;
+	private EmployeeMobile mSender;
+	private Timestamp mSentTime;
+	private String mText;
 	
 	public MessageMobile(long id, ConversationMobile conversation, EmployeeMobile sender, Timestamp sentTime,
 			String text) {
-		this.id = id;
-		this.conversation = conversation;
-		this.sender = sender;
-		this.sentTime = sentTime;
-		this.text = text;
+		this.mId = id;
+		this.mConversation = conversation;
+		this.mSender = sender;
+		this.mSentTime = sentTime;
+		this.mText = text;
 	}
 
 	public long getId() {
-		return id;
+		return mId;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.mId = id;
 	}
 
 	public ConversationMobile getConversation() {
-		return conversation;
+		return mConversation;
 	}
 
 	public void setConversation(ConversationMobile conversation) {
-		this.conversation = conversation;
+		this.mConversation = conversation;
 	}
 
 	public EmployeeMobile getSender() {
-		return sender;
+		return mSender;
 	}
 
 	public void setSender(EmployeeMobile sender) {
-		this.sender = sender;
+		this.mSender = sender;
 	}
 
 	public Timestamp getSentTime() {
-		return sentTime;
+		return mSentTime;
 	}
 
 	public void setSentTime(Timestamp sentTime) {
-		this.sentTime = sentTime;
+		this.mSentTime = sentTime;
 	}
 
 	public String getText() {
-		return text;
+		return mText;
 	}
 
 	public void setText(String text) {
-		this.text = text;
+		this.mText = text;
 	}
 
 	

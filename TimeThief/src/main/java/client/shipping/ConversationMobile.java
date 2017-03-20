@@ -4,48 +4,48 @@ import java.util.List;
 
 public class ConversationMobile {
 	
-	private long id;
-	private List<EmployeeMobile> members;
-	private List<MessageMobile> messages;
-	private int messageCount;
+	private long mId;
+	private List<EmployeeMobile> mMembers;
+	private List<MessageMobile> mMessages;
+	private int mMessageCount;
 	
 	public ConversationMobile(long id, List<EmployeeMobile> members, List<MessageMobile> messages, int messageCount) {
-		this.id = id;
-		this.members = members;
-		this.messages = messages;
-		this.messageCount = messageCount;
+		this.mId = id;
+		this.mMembers = members;
+		this.mMessages = messages;
+		this.mMessageCount = messageCount;
 	}
 
 	public long getId() {
-		return id;
+		return mId;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.mId = id;
 	}
 
 	public List<EmployeeMobile> getMembers() {
-		return members;
+		return mMembers;
 	}
 
 	public void setMembers(List<EmployeeMobile> members) {
-		this.members = members;
+		this.mMembers = members;
 	}
 
 	public List<MessageMobile> getMessages() {
-		return messages;
+		return mMessages;
 	}
 
 	public void setMessages(List<MessageMobile> messages) {
-		this.messages = messages;
+		this.mMessages = messages;
 	}
 
 	public int getMessageCount() {
-		return messageCount;
+		return mMessageCount;
 	}
 
 	public void setMessageCount(int messageCount) {
-		this.messageCount = messageCount;
+		this.mMessageCount = messageCount;
 	}
 	
 }

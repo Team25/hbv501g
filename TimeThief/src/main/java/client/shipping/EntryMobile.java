@@ -6,71 +6,71 @@ import java.util.List;
 import project.persistence.entities.Entry;
 
 public class EntryMobile {
-	private long id;
-	private List<CommentMobile> comments;
-	private String department;
-	private Date inTime;
-	private Date outTime;
-	private boolean isVerified;
+	private long mId;
+	private List<CommentMobile> mComments;
+	private String mDepartment;
+	private Date mInTime;
+	private Date mOutTime;
+	private boolean mIsVerified;
 	
 	
 	
 	public EntryMobile(long id, List<CommentMobile> comments, String department, Date inTime, Date outTime,
 			boolean isVerified) {
-		this.id = id;
-		this.comments = comments;
-		this.department = department;
-		this.inTime = inTime;
-		this.outTime = outTime;
-		this.isVerified = isVerified;
+		this.mId = id;
+		this.mComments = comments;
+		this.mDepartment = department;
+		this.mInTime = inTime;
+		this.mOutTime = outTime;
+		this.mIsVerified = isVerified;
 	}
 	
 	//contstructor for sending entries to mobile
 	public EntryMobile(Entry entry){
-		this.id = entry.getId();
+		this.mId = entry.getId();
 		//TODO change all items in list to CommentMobile
-		this.comments = null;
-		this.department = entry.getDepartment();
-		this.inTime = entry.getInTime();
-		this.outTime = entry.getOutTime();
-		this.isVerified = entry.getIsVerified();
+		this.mComments = null;
+		this.mDepartment = entry.getDepartment();
+		this.mInTime = entry.getInTime();
+		this.mOutTime = entry.getOutTime();
+		this.mIsVerified = entry.getIsVerified();
 	}
 	
 	public long getId() {
-		return id;
+		return mId;
 	}
 	public void setId(long id) {
-		this.id = id;
+		this.mId = id;
 	}
 	public List<CommentMobile> getComments() {
-		return comments;
+		return mComments;
 	}
 	public void setComments(List<CommentMobile> comments) {
-		this.comments = comments;
+		this.mComments = comments;
 	}
 	public String getDepartment() {
-		return department;
+		return mDepartment;
 	}
 	public void setDepartment(String department) {
-		this.department = department;
+		this.mDepartment = department;
 	}
 	public Date getInTime() {
-		return inTime;
+		return mInTime;
 	}
 	public void setInTime(Date inTime) {
-		this.inTime = inTime;
+		this.mInTime = inTime;
 	}
 	public Date getOutTime() {
-		return outTime;
+		return mOutTime;
 	}
 	public void setOutTime(Date outTime) {
-		this.outTime = outTime;
+		this.mOutTime = outTime;
 	}
 	public boolean isVerified() {
-		return isVerified;
+		return mIsVerified;
 	}
 	public void setVerified(boolean isVerified) {
-		this.isVerified = isVerified;
+		this.mIsVerified = isVerified;
 	}
 	
 	

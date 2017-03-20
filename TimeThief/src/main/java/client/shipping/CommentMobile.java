@@ -4,56 +4,56 @@ import project.persistence.entities.Comment;
 
 public class CommentMobile {
 
-    private long id;
-    private EntryMobile entry;
-    private EmployeeMobile employee;
-    private String text;
+    private long mId;
+    private EntryMobile mEntry;
+    private EmployeeMobile mEmployee;
+    private String mText;
     
 	public CommentMobile(long id, EntryMobile entry, EmployeeMobile employee, String text) {
-		this.id = id;
-		this.entry = entry;
-		this.employee = employee;
-		this.text = text;
+		this.mId = id;
+		this.mEntry = entry;
+		this.mEmployee = employee;
+		this.mText = text;
 	}
 	
 	public CommentMobile(Comment comment, EntryMobile entry) {
-		this.id = comment.getId();
-		this.entry = entry;
+		this.mId = comment.getId();
+		this.mEntry = entry;
 		//TODO consider using fixing server side connection between comment and employee.
-		this.employee = null;
-		this.text = comment.getText();
+		this.mEmployee = null;
+		this.mText = comment.getText();
 	}
 
 	public long getId() {
-		return id;
+		return mId;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.mId = id;
 	}
 
 	public EntryMobile getEntry() {
-		return entry;
+		return mEntry;
 	}
 
 	public void setEntry(EntryMobile entry) {
-		this.entry = entry;
+		this.mEntry = entry;
 	}
 
 	public EmployeeMobile getEmployee() {
-		return employee;
+		return mEmployee;
 	}
 
 	public void setEmployee(EmployeeMobile employee) {
-		this.employee = employee;
+		this.mEmployee = employee;
 	}
 
 	public String getText() {
-		return text;
+		return mText;
 	}
 
 	public void setText(String text) {
-		this.text = text;
+		this.mText = text;
 	}
 
     

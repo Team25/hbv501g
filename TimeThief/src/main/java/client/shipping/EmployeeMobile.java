@@ -2,49 +2,49 @@ package client.shipping;
 
 public class EmployeeMobile {
 
-	private String fullName;
+	private String mFullName;
 	
-	private Long id;    
+	private Long mId;    
 
-	private String phoneNumber;
+	private String mPhoneNumber;
 	
-	private String token;
+	private String mToken;
 
 	
 	public EmployeeMobile(String fullName, Long id, String phoneNumber, String token) {
-		this.fullName = fullName;
-		this.id = id;
-		this.phoneNumber = phoneNumber;
-		this.token = token;
+		this.mFullName = fullName;
+		this.mId = id;
+		this.mPhoneNumber = phoneNumber;
+		this.mToken = token;
 	}
 
 	public String getFullName() {
-		return fullName;
+		return mFullName;
 	}
 
 	public void setFullName(String fullName) {
-		this.fullName = fullName;
+		this.mFullName = fullName;
 	}
 
 	public Long getId() {
-		return id;
+		return mId;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.mId = id;
 	}
 
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return mPhoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.mPhoneNumber = phoneNumber;
 	}
 	
-	public String getToken() { return token; }
+	public String getToken() { return mToken; }
 
-    public void setToken(String token) { this.token = token; }
+    public void setToken(String token) { this.mToken = token; }
 	
 	
 }
