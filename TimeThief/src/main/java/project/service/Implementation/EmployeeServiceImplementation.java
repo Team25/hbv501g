@@ -140,4 +140,20 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		// skilum token til controller > client.
 		return token;
 	}
+	
+	public boolean resetPassword(String loginName){
+		
+		List<Employee> namelist = findByLoginName(loginName);
+		if(namelist.isEmpty()||namelist.size()>1) return false;
+		
+		String newpassword = "abc";
+		//TBD að senda newpassword í t-pósti til notanda
+		//og þá velja nýtt password af handahófi
+	
+		String hashedPassword = hashString(newpassword);
+		Employee employee = namelist.get(0);
+		employee.setLoginPassword(hashedPassword);
+		repository.save(employee);
+		return true;
+	}
 }

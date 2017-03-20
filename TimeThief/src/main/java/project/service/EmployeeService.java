@@ -36,4 +36,6 @@ public interface EmployeeService {
 	EmployeeMobile isValidToken(String token);
 	
 	String createToken(Employee employee); // not in uml
+	
+	boolean resetPassword(String loginName);
 }

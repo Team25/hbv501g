@@ -59,4 +59,12 @@ public class LoginRESTController {
 		return employee;
 		
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/appreset", produces = "application/json")
+	public String resetPassword(String loginName) {
+		if(employeeService.resetPassword(loginName))return "";
+		
+		return "error";	
+	}
+	
 }
