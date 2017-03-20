@@ -99,10 +99,12 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		
 		Employee emp = employees.get(0);
 		
-		return new EmployeeMobile(emp.getFullName(),
-							 		emp.getId(),
-									emp.getPhoneNumber(),
-									emp.getToken());
+		EmployeeMobile employee = new EmployeeMobile(emp.getFullName(),
+													emp.getId(),
+													emp.getPhoneNumber(),
+													emp.getToken());
+		
+		return employee;
 	}
 	
 	private String hashString(String str) {
