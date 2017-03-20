@@ -26,7 +26,7 @@ public class ClockRESTController {
 		this.employeeService = employeeService; // not in uml
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/appclock")
+	@RequestMapping(method = RequestMethod.GET, value = "/appclock", produces = "application/json")
 	public EntryMobile clockInOut(String token, @RequestParam(required = false) String department) {
 		Employee employee = employeeService.findByToken(token);
 		
