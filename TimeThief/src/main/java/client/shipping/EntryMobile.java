@@ -36,40 +36,40 @@ public class EntryMobile {
 		this.mIsVerified = entry.getIsVerified();
 	}
 	
-	public long getId() {
+	public long getmId() {
 		return mId;
 	}
-	public void setId(long id) {
+	public void setmId(long id) {
 		this.mId = id;
 	}
-	public List<CommentMobile> getComments() {
+	public List<CommentMobile> getmComments() {
 		return mComments;
 	}
-	public void setComments(List<CommentMobile> comments) {
+	public void setmComments(List<CommentMobile> comments) {
 		this.mComments = comments;
 	}
-	public String getDepartment() {
+	public String getmDepartment() {
 		return mDepartment;
 	}
-	public void setDepartment(String department) {
+	public void setmDepartment(String department) {
 		this.mDepartment = department;
 	}
-	public Date getInTime() {
+	public Date getmInTime() {
 		return mInTime;
 	}
-	public void setInTime(Date inTime) {
+	public void setmInTime(Date inTime) {
 		this.mInTime = inTime;
 	}
-	public Date getOutTime() {
+	public Date getmOutTime() {
 		return mOutTime;
 	}
-	public void setOutTime(Date outTime) {
+	public void setmOutTime(Date outTime) {
 		this.mOutTime = outTime;
 	}
-	public boolean isVerified() {
+	public boolean ismVerified() {
 		return mIsVerified;
 	}
-	public void setVerified(boolean isVerified) {
+	public void setmVerified(boolean isVerified) {
 		this.mIsVerified = isVerified;
 	}
 	
