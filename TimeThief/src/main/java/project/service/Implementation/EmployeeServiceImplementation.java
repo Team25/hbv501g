@@ -142,13 +142,49 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	}
 	
 	public boolean resetPassword(String loginName){
-		
+		System.out.println(loginName);
 		List<Employee> namelist = findByLoginName(loginName);
 		if(namelist.isEmpty()||namelist.size()>1) return false;
 		
+		/*
+		String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		String newpass = "";
+		for(int i = 0; i < 8; i++) {
+			newpass = newpass + candidateChars.charAt(random.nextInt(candidateChars.length()));
+		}
+		*/
+		
 		String newpassword = "abc";
+		
 		//TBD að senda newpassword í t-pósti til notanda
 		//og þá velja nýtt password af handahófi
+		
+		
+		
+		
+		/*
+		Properties props = new Properties();
+		//skipta út server fyrir eitthvað annað
+	    props.put("mail.smtp.host", "my-mail-server");
+	    Session session = Session.getInstance(props, null);
+
+	    try {
+	        MimeMessage msg = new MimeMessage(session);
+	        msg.setFrom("me@example.com");
+	        msg.setRecipients(Message.RecipientType.TO,
+	                          "you@example.com");
+	        msg.setSubject("JavaMail hello world example");
+	        msg.setSentDate(new Date());
+	        msg.setText("Hello, world!\n");
+	        Transport.send(msg, "me@example.com", "my-password");
+	    } catch (MessagingException mex) {
+	        System.out.println("send failed, exception: " + mex);
+	        return false;
+	    }
+	    */
+		
+		
+		
 	
 		String hashedPassword = hashString(newpassword);
 		Employee employee = namelist.get(0);
