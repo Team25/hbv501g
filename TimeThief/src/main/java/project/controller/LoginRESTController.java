@@ -61,10 +61,10 @@ public class LoginRESTController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/appreset", produces = "application/json")
-	public String resetPassword(String loginName) {
-		if(employeeService.resetPassword(loginName))return "";
+	public Object resetPassword(String userName) {
+		if(employeeService.resetPassword(userName))return new TokenInfo();
 		
-		return "error";	
+		return new ResponseEntity<Object>(new EmptyJsonResponse(), HttpStatus.OK);
 	}
 	
 }
