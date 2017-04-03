@@ -19,6 +19,7 @@
 	<li>Social Security number: ${employee.socialSecurity}</li>
 	<li>Phone number: ${employee.phoneNumber}</li>
 	<li>Home address: ${employee.homeAddress}</li>
+	<li>Email address: ${employee.emailAddress}</li>
 	<li>Date of employment: ${employee.dateOfEmployment}</li>
 	<li>Hourly rate: ${employee.hourlyRate}</li>
 	<li>Default department: ${employee.defaultDepartment}</li>

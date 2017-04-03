@@ -161,7 +161,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		
 		
 		Employee employee = namelist.get(0);
-		String sendtoemail = employee.getEmailAddress();
+		String sendToEmail = employee.getEmailAddress();
 		String employeeName = employee.getFullName();
 		
 		/*
@@ -174,11 +174,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	        MimeMessage msg = new MimeMessage(session);
 	        msg.setFrom("noreply@timethief.biz");
 	        msg.setRecipients(Message.RecipientType.TO,
-	                          sendtoemail);
+	                          sendToEmail);
 	        msg.setSubject("Your new password");
 	        msg.setSentDate(new Date());
 	        msg.setText("Greetings "+employeeName+"\n\nYour new password for Timethief/Timerunner is: "+newpassword+
-	        "Best regards\nTeam25inc" );
+	        "\n\nBest regards\nTeam25 inc" );
 	        Transport.send(msg, "me@example.com", "my-password");
 	    } catch (MessagingException mex) {
 	        System.out.println("send failed, exception: " + mex);
