@@ -42,6 +42,8 @@ public class Employee {
     @Size(min=1, max=64)
 	private String homeAddress;
     
+    private String emailAddress;
+    
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfEmployment;
 	
@@ -105,6 +107,12 @@ public class Employee {
 	}
 	public void setHomeAddress(String homeAddrass) {
 		this.homeAddress = homeAddrass;
+	}
+	public String getEmailAddress(){
+		return emailAddress;
+	}
+	public void setEmailAddress(String emailAddress){
+		this.emailAddress = emailAddress;
 	}
 	public Date getDateOfEmployment() {
 		return dateOfEmployment;

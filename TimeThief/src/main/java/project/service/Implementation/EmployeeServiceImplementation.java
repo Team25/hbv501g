@@ -160,7 +160,9 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		//og þá velja nýtt password af handahófi
 		
 		
-		
+		Employee employee = namelist.get(0);
+		String sendtoemail = employee.getEmailAddress();
+		String employeeName = employee.getFullName();
 		
 		/*
 		Properties props = new Properties();
@@ -170,12 +172,13 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
 	    try {
 	        MimeMessage msg = new MimeMessage(session);
-	        msg.setFrom("me@example.com");
+	        msg.setFrom("noreply@timethief.biz");
 	        msg.setRecipients(Message.RecipientType.TO,
-	                          "you@example.com");
-	        msg.setSubject("JavaMail hello world example");
+	                          sendtoemail);
+	        msg.setSubject("Your new password");
 	        msg.setSentDate(new Date());
-	        msg.setText("Hello, world!\n");
+	        msg.setText("Greetings "+employeeName+"\n\nYour new password for Timethief/Timerunner is: "+newpassword+
+	        "Best regards\nTeam25inc" );
 	        Transport.send(msg, "me@example.com", "my-password");
 	    } catch (MessagingException mex) {
 	        System.out.println("send failed, exception: " + mex);
@@ -183,11 +186,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	    }
 	    */
 		
-		
-		
-	
 		String hashedPassword = hashString(newpassword);
-		Employee employee = namelist.get(0);
 		employee.setLoginPassword(hashedPassword);
 		repository.save(employee);
 		return true;
