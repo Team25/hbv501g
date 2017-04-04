@@ -192,8 +192,9 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		    } catch (MessagingException mex) {
 		        System.out.println("send failed, exception: " + mex);
 		        return false;
-		    }
-		}*/
+		    }*/
+		}
+		
 			
 		return true;
 		
