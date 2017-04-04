@@ -191,4 +191,24 @@ public class EmployeeController {
     	
     	return "unauthorized";
     }
+    
+    @RequestMapping(value = "/confirmResetPW/{token}", method = RequestMethod.GET)
+    public String confirmResetPW(@PathVariable String token, Model model){
+    	System.out.println("confirmReset");
+    	
+    	Employee employee = employeeService.findByToken(token);
+    	
+    	System.out.println(employee.getFullName());
+    	
+    
+    	String newpassword = employeeService.generateNewPassword(employee); 
+    	
+    	model.addAttribute("newpassword", newpassword);
+    	
+    	return "newPassword";
+    	
+    }
+    
+    
+
 }

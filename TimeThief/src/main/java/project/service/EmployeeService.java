@@ -38,4 +38,6 @@ public interface EmployeeService {
 	String createToken(Employee employee); // not in uml
 	
 	boolean resetPassword(String loginName);
+	
+	public String generateNewPassword(Employee employee);
 }

@@ -22,6 +22,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.MimeMessage;
 import javax.xml.bind.DatatypeConverter;
+import java.util.Random;
 
 @Service
 public class EmployeeServiceImplementation implements EmployeeService {
@@ -155,6 +156,14 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		if(namelist.isEmpty()||namelist.size()>1) return false;
 
 		Employee employee = namelist.get(0);
+		
+		String token = createToken(employee);
+		
+		System.out.println("www.timethief.biz:8080/ConfirmResetPW/"+token);
+		
+		return true;
+		
+		/*
 		String newpassword;
 		
 		if(employee.getEmailAddress()==null){
@@ -165,10 +174,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 			/*
 			String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 			String newpassword = "";
+			Random random = new Random();
 			for(int i = 0; i < 8; i++) {
 				newpassword = newpassword + candidateChars.charAt(random.nextInt(candidateChars.length()));
 			}
-			*/
+			
 			
 			newpassword = "abc";
 			
@@ -200,11 +210,37 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		        return false;
 		    }
 		}
-	    
-		
+	    */
+		/*
 		String hashedPassword = hashString(newpassword);
 		employee.setLoginPassword(hashedPassword);
 		repository.save(employee);
-		return true;
+		*/
+		
 	}
+	
+	public String generateNewPassword(Employee employee) {
+		
+
+		String candidateChars = "abcdefghijklmnopqrstuvwxyz1234567890";
+		String newpassword = "";
+		Random random = new Random();
+		
+		for(int i = 0; i < 8; i++) {
+			newpassword = newpassword + candidateChars.charAt(random.nextInt(candidateChars.length()));
+		}
+		
+		
+		System.out.println(newpassword);
+		String hashedPassword = hashString(newpassword);
+		employee.setLoginPassword(hashedPassword);
+		repository.save(employee);
+		
+		return newpassword;
+		
+	}
+	
+	
+	
+	
 }
