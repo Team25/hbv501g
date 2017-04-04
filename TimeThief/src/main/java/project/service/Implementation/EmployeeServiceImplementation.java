@@ -1,6 +1,8 @@
 package project.service.Implementation;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,12 @@ import project.persistence.repositories.EmployeeRepository;
 import project.service.EmployeeService;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.MimeMessage;
 import javax.xml.bind.DatatypeConverter;
 
 @Service
@@ -145,46 +153,54 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		System.out.println(loginName);
 		List<Employee> namelist = findByLoginName(loginName);
 		if(namelist.isEmpty()||namelist.size()>1) return false;
-		
-		/*
-		String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-		String newpass = "";
-		for(int i = 0; i < 8; i++) {
-			newpass = newpass + candidateChars.charAt(random.nextInt(candidateChars.length()));
-		}
-		*/
-		
-		String newpassword = "abc";
-		
-		//TBD að senda newpassword í t-pósti til notanda
-		//og þá velja nýtt password af handahófi
-		
-		
-		Employee employee = namelist.get(0);
-		String sendToEmail = employee.getEmailAddress();
-		String employeeName = employee.getFullName();
-		
-		/*
-		Properties props = new Properties();
-		//skipta út server fyrir eitthvað annað
-	    props.put("mail.smtp.host", "my-mail-server");
-	    Session session = Session.getInstance(props, null);
 
-	    try {
-	        MimeMessage msg = new MimeMessage(session);
-	        msg.setFrom("noreply@timethief.biz");
-	        msg.setRecipients(Message.RecipientType.TO,
-	                          sendToEmail);
-	        msg.setSubject("Your new password");
-	        msg.setSentDate(new Date());
-	        msg.setText("Greetings "+employeeName+"\n\nYour new password for Timethief/Timerunner is: "+newpassword+
-	        "\n\nBest regards\nTeam25 inc" );
-	        Transport.send(msg, "me@example.com", "my-password");
-	    } catch (MessagingException mex) {
-	        System.out.println("send failed, exception: " + mex);
-	        return false;
-	    }
-	    */
+		Employee employee = namelist.get(0);
+		String newpassword;
+		
+		if(employee.getEmailAddress()==null){
+			newpassword = "abc";
+			
+		}
+		else{
+			/*
+			String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+			String newpassword = "";
+			for(int i = 0; i < 8; i++) {
+				newpassword = newpassword + candidateChars.charAt(random.nextInt(candidateChars.length()));
+			}
+			*/
+			
+			newpassword = "abc";
+			
+			//TBD að senda newpassword í t-pósti til notanda
+			//og þá velja nýtt password af handahófi
+			
+			
+			String sendToEmail = employee.getEmailAddress();
+			String employeeName = employee.getFullName();
+			
+			
+			Properties props = new Properties();
+			//skipta út server fyrir eitthvað annað
+		    props.put("mail.smtp.host", "my-mail-server");
+		    Session session = Session.getInstance(props, null);
+	
+		    try {
+		        MimeMessage msg = new MimeMessage(session);
+		        msg.setFrom("noreply@timethief.biz");
+		        msg.setRecipients(Message.RecipientType.TO,
+		                          sendToEmail);
+		        msg.setSubject("Your new password");
+		        msg.setSentDate(new Date());
+		        msg.setText("Greetings "+employeeName+"\n\nYour new password for Timethief/Timerunner is: "+newpassword+
+		        "\n\nBest regards\nTeam25 inc" );
+		        Transport.send(msg, "me@example.com", "my-password");
+		    } catch (MessagingException mex) {
+		        System.out.println("send failed, exception: " + mex);
+		        return false;
+		    }
+		}
+	    
 		
 		String hashedPassword = hashString(newpassword);
 		employee.setLoginPassword(hashedPassword);
