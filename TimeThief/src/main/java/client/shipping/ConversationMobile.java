@@ -1,6 +1,10 @@
 package client.shipping;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import project.persistence.entities.Conversation;
+import project.persistence.entities.Employee;
 
 public class ConversationMobile {
 	
@@ -16,35 +20,47 @@ public class ConversationMobile {
 		this.mMessageCount = messageCount;
 	}
 
-	public long getId() {
+	public ConversationMobile(Conversation conversation) {
+		this.mId = conversation.getId();
+		List<EmployeeMobile> members = new ArrayList<EmployeeMobile>();
+		//TODO: Perhaps check if members list doesnt always include members!
+		for(Employee e: conversation.getMembers()){
+			members.add(new EmployeeMobile(e));
+		}
+		this.mMembers = members;
+		this.mMessages = null;
+		this.mMessageCount = 0;
+	}
+
+	public long getmId() {
 		return mId;
 	}
 
-	public void setId(long id) {
+	public void setmId(long id) {
 		this.mId = id;
 	}
 
-	public List<EmployeeMobile> getMembers() {
+	public List<EmployeeMobile> getmMembers() {
 		return mMembers;
 	}
 
-	public void setMembers(List<EmployeeMobile> members) {
+	public void setmMembers(List<EmployeeMobile> members) {
 		this.mMembers = members;
 	}
 
-	public List<MessageMobile> getMessages() {
+	public List<MessageMobile> getmMessages() {
 		return mMessages;
 	}
 
-	public void setMessages(List<MessageMobile> messages) {
+	public void setmMessages(List<MessageMobile> messages) {
 		this.mMessages = messages;
 	}
 
-	public int getMessageCount() {
+	public int getmMessageCount() {
 		return mMessageCount;
 	}
 
-	public void setMessageCount(int messageCount) {
+	public void setmMessageCount(int messageCount) {
 		this.mMessageCount = messageCount;
 	}
 	

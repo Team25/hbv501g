@@ -32,5 +32,7 @@ public interface MessageService {
 	
 	Conversation findOneConversation(long id);
 	
+	List<Conversation> findConversationByExample(Conversation conversation);
+	
 	
 }

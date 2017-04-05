@@ -3,9 +3,11 @@ package project.service.Implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import project.persistence.entities.Conversation;
+import project.persistence.entities.Entry;
 import project.persistence.entities.Message;
 import project.persistence.repositories.ConversationRepository;
 import project.persistence.repositories.MessageRepository;
@@ -71,6 +73,15 @@ public class MessageServiceImplementation implements MessageService {
 			return messages.subList(offset, messages.size());
 		}
 		return messages.subList(offset, offset+numberOfMessages);
+	}
+	
+	// ekki í uml
+	@Override
+	public List<Conversation> findConversationByExample(Conversation conversation){
+		
+		Example<Conversation> entryExample = Example.of(conversation);
+		
+		return conversationRepository.findAll(entryExample);
 	}
 	
 	
