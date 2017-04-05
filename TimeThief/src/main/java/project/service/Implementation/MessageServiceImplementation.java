@@ -3,6 +3,7 @@ package project.service.Implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import project.persistence.entities.Conversation;
 import project.persistence.entities.Message;
@@ -10,6 +11,7 @@ import project.persistence.repositories.ConversationRepository;
 import project.persistence.repositories.MessageRepository;
 import project.service.MessageService;
 
+@Service
 public class MessageServiceImplementation implements MessageService {
 	
 	private MessageRepository messageRepository;
