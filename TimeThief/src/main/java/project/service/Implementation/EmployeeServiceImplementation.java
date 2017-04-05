@@ -159,7 +159,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		
 		String token = createToken(employee);
 		
-		String linkforemailing = "www.timethief.biz:8080/ConfirmResetPW/"+token;
+		String linkforemailing = "www.timethief.biz:8080/confirmResetPW/"+token;
 		System.out.println(linkforemailing);
 		
 		
@@ -171,30 +171,28 @@ public class EmployeeServiceImplementation implements EmployeeService {
 			
 			String sendToEmail = employee.getEmailAddress();
 			String employeeName = employee.getFullName();
-		/*	
+		
 			
 			Properties props = new Properties();
 			//skipta út server fyrir eitthvað annað
-		    props.put("mail.smtp.host", "my-mail-server");
+		    props.put("127.0.0.1", "my-mail-server");
 		    Session session = Session.getInstance(props, null);
 	
 		    try {
 		        MimeMessage msg = new MimeMessage(session);
 		        msg.setFrom("noreply@timethief.biz");
-		        msg.setRecipients(Message.RecipientType.TO,
-		                          sendToEmail);
+		        msg.setRecipients(Message.RecipientType.TO, sendToEmail);
 		        msg.setSubject("Your new password");
 		        msg.setSentDate(new Date());
 		        msg.setText("Greetings "+employeeName+"\n\nDid you ask for a new password?\n"
 		        		+ "You can access a new one by pasting this link into your browser: "+linkforemailing+
 		        "\n\nBest regards\nTeam25 inc" );
-		        Transport.send(msg, "me@example.com", "my-password");
+		        Transport.send(msg);
 		    } catch (MessagingException mex) {
 		        System.out.println("send failed, exception: " + mex);
 		        return false;
-		    }*/
+		    }
 		}
-		
 			
 		return true;
 		
