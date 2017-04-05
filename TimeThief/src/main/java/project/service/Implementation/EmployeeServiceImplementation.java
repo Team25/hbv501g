@@ -159,63 +159,42 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		
 		String token = createToken(employee);
 		
-		System.out.println("www.timethief.biz:8080/ConfirmResetPW/"+token);
+		String linkforemailing = "www.timethief.biz:8080/confirmResetPW/"+token;
+		System.out.println(linkforemailing);
 		
-		return true;
-		
-		/*
-		String newpassword;
 		
 		if(employee.getEmailAddress()==null){
-			newpassword = "abc";
-			
+			return false;
 		}
 		else{
-			/*
-			String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-			String newpassword = "";
-			Random random = new Random();
-			for(int i = 0; i < 8; i++) {
-				newpassword = newpassword + candidateChars.charAt(random.nextInt(candidateChars.length()));
-			}
-			
-			
-			newpassword = "abc";
-			
-			//TBD að senda newpassword í t-pósti til notanda
-			//og þá velja nýtt password af handahófi
-			
+						
 			
 			String sendToEmail = employee.getEmailAddress();
 			String employeeName = employee.getFullName();
-			
+		
 			
 			Properties props = new Properties();
 			//skipta út server fyrir eitthvað annað
-		    props.put("mail.smtp.host", "my-mail-server");
+		    props.put("127.0.0.1", "my-mail-server");
 		    Session session = Session.getInstance(props, null);
 	
 		    try {
 		        MimeMessage msg = new MimeMessage(session);
 		        msg.setFrom("noreply@timethief.biz");
-		        msg.setRecipients(Message.RecipientType.TO,
-		                          sendToEmail);
+		        msg.setRecipients(Message.RecipientType.TO, sendToEmail);
 		        msg.setSubject("Your new password");
 		        msg.setSentDate(new Date());
-		        msg.setText("Greetings "+employeeName+"\n\nYour new password for Timethief/Timerunner is: "+newpassword+
+		        msg.setText("Greetings "+employeeName+"\n\nDid you ask for a new password?\n"
+		        		+ "You can access a new one by pasting this link into your browser: "+linkforemailing+
 		        "\n\nBest regards\nTeam25 inc" );
-		        Transport.send(msg, "me@example.com", "my-password");
+		        Transport.send(msg);
 		    } catch (MessagingException mex) {
 		        System.out.println("send failed, exception: " + mex);
 		        return false;
 		    }
 		}
-	    */
-		/*
-		String hashedPassword = hashString(newpassword);
-		employee.setLoginPassword(hashedPassword);
-		repository.save(employee);
-		*/
+			
+		return true;
 		
 	}
 	
