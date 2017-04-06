@@ -12,7 +12,9 @@ public class Conversation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+
 	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="author_book", joinColumns=@JoinColumn(name="conversation_id"), inverseJoinColumns=@JoinColumn(name="members_id"))  
 	private List<Employee> members;
 	
 	@OneToMany(mappedBy = "conversation",

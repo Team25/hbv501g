@@ -58,9 +58,9 @@ public class Employee {
 	private String token;
 	
 	
-	@ManyToMany(mappedBy="members", fetch = FetchType.LAZY)
+	/*@ManyToMany(mappedBy="members", fetch = FetchType.LAZY)
 	private List<Conversation> conversations;
-	
+	*/
 	@OneToMany(mappedBy="sender",
 			fetch=FetchType.LAZY)
 	private List<Message> messages;
@@ -145,7 +145,7 @@ public class Employee {
 		return token;
 	}
 
-	
+	/*
 	public List<Conversation> getConversations() {
 		return conversations;
 	}
@@ -153,7 +153,7 @@ public class Employee {
 	public void setConversations(List<Conversation> conversations) {
 		this.conversations = conversations;
 	}
-	
+	*/
 
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;

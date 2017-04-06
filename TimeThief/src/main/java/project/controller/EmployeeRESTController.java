@@ -1,5 +1,6 @@
 package project.controller;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import project.persistence.entities.Conversation;
 import project.persistence.entities.Employee;
-
+import project.persistence.entities.Message;
 import project.service.EmployeeService;
 import project.service.MessageService;
 
@@ -51,7 +52,9 @@ public class EmployeeRESTController {
 		
 		Employee person1 = employeeService.findByToken(token);
 		if (person1 == null)
-			System.err.println("SOMETHING HAS GONE HORRIBLY WRONG");
+			return null;
+		else
+			System.err.println(person1.getFullName());
 		Employee person2 = employeeService.findOne(conversationist);
 		List<Employee> conversationParticipants = new ArrayList<Employee>();
 		conversationParticipants.add(person2);
@@ -59,12 +62,20 @@ public class EmployeeRESTController {
 		Conversation conversationExample = new Conversation();
 		conversationExample.setMembers(conversationParticipants);
 		System.err.println(""+conversationExample.getMembers().get(0).getFullName());
-		//System.err.println(""+conversationExample.getMembers().get(1).getFullName());
+		System.err.println(""+conversationExample.getMembers().get(1).getFullName());
 		List<Conversation> conversation = messageService.findConversationByExample(conversationExample);
 		System.err.println("size of list is: " + conversation.size());
 		Conversation newConversation;
 		// Check if conversation exists... if not, make one.
 		if(conversation!=null && conversation.isEmpty()){
+			List<Message> messages = new ArrayList<Message>();
+			Message message = new Message();
+			message.setConversation(conversationExample);
+			message.setText("do not give away your password");
+			message.setSentTime(new Timestamp(System.currentTimeMillis()));
+			
+			messages.add(message);
+			conversationExample.setMessages(messages);
 			newConversation = messageService.saveConversation(conversationExample);
 		} else {
 			System.err.println("Id of conversation is: "+ conversation.get(0).getId() );
