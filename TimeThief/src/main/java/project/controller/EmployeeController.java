@@ -209,6 +209,23 @@ public class EmployeeController {
     	
     }
     
+    @RequestMapping(value = "/resetPW", method = RequestMethod.GET)
+    public String loginPage(HttpSession session){
+    	return "resetPassword";
+    }
+    
+    
+    @RequestMapping(value = "/resetPW", method = RequestMethod.POST)
+    public String login(@RequestParam String userId,
+    		Model model){
+    	
+    	if(!employeeService.resetPassword(userId)){
+    		model.addAttribute("Error", "Username is not on file");
+    		return "resetPassword";
+    	}
+    	
+    	return "redirect:/login";
+    }
     
 
 }

@@ -53,6 +53,12 @@
 						<td><sf:input path="homeAddress" type="text" id="home_address" name="home_address" placeholder="Home Address" class="form-control"/></td>
 					</div>
 				</tr>
+					<tr>
+					<div class="form-group">
+						<td><label>Email Address:</label></td>
+						<td><sf:input path="emailAddress" type="text" id="email_address" name="email_address" placeholder="Name@domain.com" class="form-control"/></td>
+					</div>
+				</tr>
 				<tr>
 					<div class="form-group">
 						<td><label>Date of Employment:</label></td>
