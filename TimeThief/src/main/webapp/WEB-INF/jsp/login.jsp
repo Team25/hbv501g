@@ -20,6 +20,7 @@
 		<div class="message">
 		 	${loginError}
 		</div>
+		<div class="resetPassword"><a href="resetPW">Forgot Password?</a> </div>
       </div>
 	</div>
 </body>
